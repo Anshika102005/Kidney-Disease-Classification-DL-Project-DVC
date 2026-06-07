@@ -2,8 +2,8 @@ artifacts_root: artifacts
 
 data_ingestion:
   root_dir: artifacts/data_ingestion
-  source_URL: "https://drive.google.com/drive/folders/10eGHnUJ0c0hZlZ5O7gm3f190wHzM3rTq?usp=drive_link"
-  local_data_file: artifacts/data_ingestion/data.zip
+  source_URL: "local"
+  local_data_file: "C:/Users/LENOVO/Kidney-Disease-Classification-DL-Project-DVC/kidney.zip"
   unzip_dir: artifacts/data_ingestion
 
 prepare_base_model:
@@ -14,3 +14,5 @@ prepare_base_model:
 training:
   root_dir: artifacts/training
   trained_model_path: artifacts/training/model.h5
+
+

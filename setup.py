@@ -15,7 +15,8 @@ setuptools.setup(
     name=SRC_REPO,
     version=__version__,
     author=AUTHOR_USER_NAME,
-    author_email=AUTHOR_EMAIL,
+    author_email=
+    AUTHOR_EMAIL,
     description="A small package for Kidney Disease Classification using Deep Learning",
     long_description=long_description,
     long_description_content_type="text/markdown",
