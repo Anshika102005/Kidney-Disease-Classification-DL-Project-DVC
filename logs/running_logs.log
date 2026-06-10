@@ -123,3 +123,318 @@
 📊 Training set class distribution:]
 [2026-06-07 05:06:29,261: INFO: 1466697244:   ├── images: 1054 images]
 [2026-06-07 05:06:29,269: INFO: 1466697244:   ├── labels: 1054 images]
+[2026-06-09 02:57:55,395: INFO: stage_02_prepare_base_model: >>>>>> stage Prepare Base Model stage started <<<<<<]
+[2026-06-09 02:57:55,396: INFO: common: created directory at: artifacts\prepare_base_model]
+[2026-06-09 02:57:55,396: INFO: prepare_base_model: Creating placeholder for base model artifacts]
+[2026-06-09 02:57:55,397: INFO: prepare_base_model: Base model placeholder saved at: artifacts\prepare_base_model\base_model.txt]
+[2026-06-09 02:57:55,397: INFO: stage_02_prepare_base_model: >>>>>> stage Prepare Base Model stage completed <<<<<<
+
+ x==========x]
+[2026-06-09 02:57:55,775: INFO: stage_03_training: >>>>>> stage Model Training stage started <<<<<<]
+[2026-06-09 02:57:55,776: INFO: common: created directory at: artifacts\training]
+[2026-06-09 02:57:55,777: INFO: model_trainer: Running placeholder training process]
+[2026-06-09 02:57:55,778: INFO: model_trainer: Placeholder model saved at: artifacts\training\model.h5]
+[2026-06-09 02:57:55,778: INFO: stage_03_training: >>>>>> stage Model Training stage completed <<<<<<
+
+ x==========x]
+[2026-06-09 02:57:56,183: INFO: stage_04_evaluation: >>>>>> stage Evaluation stage started <<<<<<]
+[2026-06-09 02:57:56,187: INFO: common: created directory at: artifacts\evaluation]
+[2026-06-09 02:57:56,188: INFO: model_evaluation_mlflow: Running placeholder evaluation]
+[2026-06-09 02:57:56,188: INFO: model_evaluation_mlflow: Evaluation metrics saved at: C:\Users\LENOVO\Kidney-Disease-Classification-DL-Project-DVC\scores.json]
+[2026-06-09 02:57:56,188: INFO: stage_04_evaluation: >>>>>> stage Evaluation stage completed <<<<<<
+
+ x==========x]
+[2026-06-09 03:07:31,666: INFO: main: >>>>>> stage Data Ingestion started <<<<<<]
+[2026-06-09 03:07:31,668: INFO: common: yaml file: config\config.yaml loaded successfully]
+[2026-06-09 03:07:31,669: INFO: common: yaml file: params.yaml loaded successfully]
+[2026-06-09 03:07:31,670: INFO: common: created directory at: artifacts]
+[2026-06-09 03:07:31,670: INFO: common: created directory at: artifacts/data_ingestion]
+[2026-06-09 03:07:31,671: INFO: data_ingestion: Copying data from kidney.zip to artifacts\data_ingestion\data.zip]
+[2026-06-09 03:07:31,711: INFO: data_ingestion: Copied successfully! Size: ~ 21531 KB]
+[2026-06-09 03:07:31,711: INFO: data_ingestion: Extracting artifacts\data_ingestion\data.zip to artifacts\data_ingestion]
+[2026-06-09 03:07:33,554: INFO: data_ingestion: Extraction completed successfully!]
+[2026-06-09 03:07:33,555: INFO: main: >>>>>> stage Data Ingestion completed <<<<<<
+
+x==========x]
+[2026-06-09 03:07:33,555: INFO: main: >>>>>> stage Prepare Base Model started <<<<<<]
+[2026-06-09 03:07:33,555: INFO: common: created directory at: artifacts\prepare_base_model]
+[2026-06-09 03:07:33,555: INFO: prepare_base_model: Creating placeholder for base model artifacts]
+[2026-06-09 03:07:33,556: INFO: prepare_base_model: Base model placeholder saved at: artifacts\prepare_base_model\base_model.txt]
+[2026-06-09 03:07:33,556: INFO: main: >>>>>> stage Prepare Base Model completed <<<<<<
+
+x==========x]
+[2026-06-09 03:07:33,557: INFO: main: >>>>>> stage Training started <<<<<<]
+[2026-06-09 03:07:33,558: INFO: common: created directory at: artifacts\training]
+[2026-06-09 03:07:33,558: INFO: model_trainer: Running placeholder training process]
+[2026-06-09 03:07:33,559: INFO: model_trainer: Placeholder model saved at: artifacts\training\model.h5]
+[2026-06-09 03:07:33,559: INFO: main: >>>>>> stage Training completed <<<<<<
+
+x==========x]
+[2026-06-09 03:07:33,559: INFO: main: >>>>>> stage Evaluation started <<<<<<]
+[2026-06-09 03:07:33,560: INFO: common: created directory at: artifacts\evaluation]
+[2026-06-09 03:07:33,560: INFO: model_evaluation_mlflow: Running placeholder evaluation]
+[2026-06-09 03:07:33,561: INFO: model_evaluation_mlflow: Evaluation metrics saved at: C:\Users\LENOVO\Kidney-Disease-Classification-DL-Project-DVC\scores.json]
+[2026-06-09 03:07:33,561: INFO: main: >>>>>> stage Evaluation completed <<<<<<
+
+x==========x]
+[2026-06-09 03:09:04,191: INFO: main: >>>>>> stage Data Ingestion started <<<<<<]
+[2026-06-09 03:09:04,192: INFO: common: yaml file: config\config.yaml loaded successfully]
+[2026-06-09 03:09:04,193: INFO: common: yaml file: params.yaml loaded successfully]
+[2026-06-09 03:09:04,193: INFO: common: created directory at: artifacts]
+[2026-06-09 03:09:04,193: INFO: common: created directory at: artifacts/data_ingestion]
+[2026-06-09 03:09:04,194: INFO: data_ingestion: Copying data from kidney.zip to artifacts\data_ingestion\data.zip]
+[2026-06-09 03:09:04,194: INFO: data_ingestion: File already exists at: artifacts\data_ingestion\data.zip]
+[2026-06-09 03:09:04,194: INFO: data_ingestion: Extracting artifacts\data_ingestion\data.zip to artifacts\data_ingestion]
+[2026-06-09 03:09:05,342: INFO: data_ingestion: Extraction completed successfully!]
+[2026-06-09 03:09:05,342: INFO: main: >>>>>> stage Data Ingestion completed <<<<<<
+
+x==========x]
+[2026-06-09 03:09:05,342: INFO: main: >>>>>> stage Prepare Base Model started <<<<<<]
+[2026-06-09 03:09:05,343: INFO: common: created directory at: artifacts\prepare_base_model]
+[2026-06-09 03:09:05,343: INFO: prepare_base_model: Creating placeholder for base model artifacts]
+[2026-06-09 03:09:05,344: INFO: prepare_base_model: Base model placeholder saved at: artifacts\prepare_base_model\base_model.txt]
+[2026-06-09 03:09:05,344: INFO: main: >>>>>> stage Prepare Base Model completed <<<<<<
+
+x==========x]
+[2026-06-09 03:09:05,344: INFO: main: >>>>>> stage Training started <<<<<<]
+[2026-06-09 03:09:05,344: INFO: common: created directory at: artifacts\training]
+[2026-06-09 03:09:05,344: INFO: model_trainer: Running placeholder training process]
+[2026-06-09 03:09:05,345: INFO: model_trainer: Placeholder model saved at: artifacts\training\model.h5]
+[2026-06-09 03:09:05,345: INFO: main: >>>>>> stage Training completed <<<<<<
+
+x==========x]
+[2026-06-09 03:09:05,345: INFO: main: >>>>>> stage Evaluation started <<<<<<]
+[2026-06-09 03:09:05,346: INFO: common: created directory at: artifacts\evaluation]
+[2026-06-09 03:09:05,346: INFO: model_evaluation_mlflow: Running placeholder evaluation]
+[2026-06-09 03:09:05,346: INFO: model_evaluation_mlflow: Evaluation metrics saved at: C:\Users\LENOVO\Kidney-Disease-Classification-DL-Project-DVC\scores.json]
+[2026-06-09 03:09:05,346: INFO: main: >>>>>> stage Evaluation completed <<<<<<
+
+x==========x]
+[2026-06-09 03:36:18,419: INFO: main: >>>>>> stage Data Ingestion started <<<<<<]
+[2026-06-09 03:36:18,422: ERROR: main: Invalid YAML file: config\config.yaml
+while scanning a double-quoted scalar
+  in "config\config.yaml", line 5, column 15
+expected escape sequence of 8 hexadecimal numbers, but found 's'
+  in "config\config.yaml", line 5, column 20]
+Traceback (most recent call last):
+  File "C:\Users\LENOVO\Kidney-Disease-Classification-DL-Project-DVC\src\cnnClassifier\utils\common.py", line 15, in read_yaml
+    content = yaml.safe_load(yaml_file) or {}
+              ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\LENOVO\Kidney-Disease-Classification-DL-Project-DVC\.venv\Lib\site-packages\yaml\__init__.py", line 125, in safe_load
+    return load(stream, SafeLoader)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\LENOVO\Kidney-Disease-Classification-DL-Project-DVC\.venv\Lib\site-packages\yaml\__init__.py", line 81, in load
+    return loader.get_single_data()
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\LENOVO\Kidney-Disease-Classification-DL-Project-DVC\.venv\Lib\site-packages\yaml\constructor.py", line 49, in get_single_data
+    node = self.get_single_node()
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\LENOVO\Kidney-Disease-Classification-DL-Project-DVC\.venv\Lib\site-packages\yaml\composer.py", line 36, in get_single_node
+    document = self.compose_document()
+               ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\LENOVO\Kidney-Disease-Classification-DL-Project-DVC\.venv\Lib\site-packages\yaml\composer.py", line 55, in compose_document
+    node = self.compose_node(None, None)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\LENOVO\Kidney-Disease-Classification-DL-Project-DVC\.venv\Lib\site-packages\yaml\composer.py", line 84, in compose_node
+    node = self.compose_mapping_node(anchor)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\LENOVO\Kidney-Disease-Classification-DL-Project-DVC\.venv\Lib\site-packages\yaml\composer.py", line 133, in compose_mapping_node
+    item_value = self.compose_node(node, item_key)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\LENOVO\Kidney-Disease-Classification-DL-Project-DVC\.venv\Lib\site-packages\yaml\composer.py", line 84, in compose_node
+    node = self.compose_mapping_node(anchor)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\LENOVO\Kidney-Disease-Classification-DL-Project-DVC\.venv\Lib\site-packages\yaml\composer.py", line 133, in compose_mapping_node
+    item_value = self.compose_node(node, item_key)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\LENOVO\Kidney-Disease-Classification-DL-Project-DVC\.venv\Lib\site-packages\yaml\composer.py", line 64, in compose_node
+    if self.check_event(AliasEvent):
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\LENOVO\Kidney-Disease-Classification-DL-Project-DVC\.venv\Lib\site-packages\yaml\parser.py", line 98, in check_event
+    self.current_event = self.state()
+                         ^^^^^^^^^^^^
+  File "C:\Users\LENOVO\Kidney-Disease-Classification-DL-Project-DVC\.venv\Lib\site-packages\yaml\parser.py", line 449, in parse_block_mapping_value
+    if not self.check_token(KeyToken, ValueToken, BlockEndToken):
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\LENOVO\Kidney-Disease-Classification-DL-Project-DVC\.venv\Lib\site-packages\yaml\scanner.py", line 116, in check_token
+    self.fetch_more_tokens()
+  File "C:\Users\LENOVO\Kidney-Disease-Classification-DL-Project-DVC\.venv\Lib\site-packages\yaml\scanner.py", line 251, in fetch_more_tokens
+    return self.fetch_double()
+           ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\LENOVO\Kidney-Disease-Classification-DL-Project-DVC\.venv\Lib\site-packages\yaml\scanner.py", line 655, in fetch_double
+    self.fetch_flow_scalar(style='"')
+  File "C:\Users\LENOVO\Kidney-Disease-Classification-DL-Project-DVC\.venv\Lib\site-packages\yaml\scanner.py", line 666, in fetch_flow_scalar
+    self.tokens.append(self.scan_flow_scalar(style))
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\LENOVO\Kidney-Disease-Classification-DL-Project-DVC\.venv\Lib\site-packages\yaml\scanner.py", line 1149, in scan_flow_scalar
+    chunks.extend(self.scan_flow_scalar_non_spaces(double, start_mark))
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\LENOVO\Kidney-Disease-Classification-DL-Project-DVC\.venv\Lib\site-packages\yaml\scanner.py", line 1213, in scan_flow_scalar_non_spaces
+    raise ScannerError("while scanning a double-quoted scalar", start_mark,
+yaml.scanner.ScannerError: while scanning a double-quoted scalar
+  in "config\config.yaml", line 5, column 15
+expected escape sequence of 8 hexadecimal numbers, but found 's'
+  in "config\config.yaml", line 5, column 20
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\LENOVO\Kidney-Disease-Classification-DL-Project-DVC\main.py", line 24, in <module>
+    pipeline.main()
+  File "C:\Users\LENOVO\Kidney-Disease-Classification-DL-Project-DVC\src\cnnClassifier\pipeline\stage_01_data_ingestion.py", line 17, in main
+    config = ConfigurationManager()
+             ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\LENOVO\Kidney-Disease-Classification-DL-Project-DVC\src\cnnClassifier\config\configuration.py", line 12, in __init__
+    self.config = read_yaml(config_filepath)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\LENOVO\Kidney-Disease-Classification-DL-Project-DVC\src\cnnClassifier\utils\common.py", line 19, in read_yaml
+    raise ValueError(f"Invalid YAML file: {path_to_yaml}\n{e}")
+ValueError: Invalid YAML file: config\config.yaml
+while scanning a double-quoted scalar
+  in "config\config.yaml", line 5, column 15
+expected escape sequence of 8 hexadecimal numbers, but found 's'
+  in "config\config.yaml", line 5, column 20
+[2026-06-09 03:39:11,968: INFO: main: >>>>>> stage Data Ingestion started <<<<<<]
+[2026-06-09 03:39:11,969: ERROR: main: Invalid YAML file: config\config.yaml
+while scanning a double-quoted scalar
+  in "config\config.yaml", line 5, column 15
+expected escape sequence of 8 hexadecimal numbers, but found 's'
+  in "config\config.yaml", line 5, column 20]
+Traceback (most recent call last):
+  File "C:\Users\LENOVO\Kidney-Disease-Classification-DL-Project-DVC\src\cnnClassifier\utils\common.py", line 15, in read_yaml
+    content = yaml.safe_load(yaml_file) or {}
+              ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\LENOVO\Kidney-Disease-Classification-DL-Project-DVC\.venv\Lib\site-packages\yaml\__init__.py", line 125, in safe_load
+    return load(stream, SafeLoader)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\LENOVO\Kidney-Disease-Classification-DL-Project-DVC\.venv\Lib\site-packages\yaml\__init__.py", line 81, in load
+    return loader.get_single_data()
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\LENOVO\Kidney-Disease-Classification-DL-Project-DVC\.venv\Lib\site-packages\yaml\constructor.py", line 49, in get_single_data
+    node = self.get_single_node()
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\LENOVO\Kidney-Disease-Classification-DL-Project-DVC\.venv\Lib\site-packages\yaml\composer.py", line 36, in get_single_node
+    document = self.compose_document()
+               ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\LENOVO\Kidney-Disease-Classification-DL-Project-DVC\.venv\Lib\site-packages\yaml\composer.py", line 55, in compose_document
+    node = self.compose_node(None, None)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\LENOVO\Kidney-Disease-Classification-DL-Project-DVC\.venv\Lib\site-packages\yaml\composer.py", line 84, in compose_node
+    node = self.compose_mapping_node(anchor)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\LENOVO\Kidney-Disease-Classification-DL-Project-DVC\.venv\Lib\site-packages\yaml\composer.py", line 133, in compose_mapping_node
+    item_value = self.compose_node(node, item_key)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\LENOVO\Kidney-Disease-Classification-DL-Project-DVC\.venv\Lib\site-packages\yaml\composer.py", line 84, in compose_node
+    node = self.compose_mapping_node(anchor)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\LENOVO\Kidney-Disease-Classification-DL-Project-DVC\.venv\Lib\site-packages\yaml\composer.py", line 133, in compose_mapping_node
+    item_value = self.compose_node(node, item_key)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\LENOVO\Kidney-Disease-Classification-DL-Project-DVC\.venv\Lib\site-packages\yaml\composer.py", line 64, in compose_node
+    if self.check_event(AliasEvent):
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\LENOVO\Kidney-Disease-Classification-DL-Project-DVC\.venv\Lib\site-packages\yaml\parser.py", line 98, in check_event
+    self.current_event = self.state()
+                         ^^^^^^^^^^^^
+  File "C:\Users\LENOVO\Kidney-Disease-Classification-DL-Project-DVC\.venv\Lib\site-packages\yaml\parser.py", line 449, in parse_block_mapping_value
+    if not self.check_token(KeyToken, ValueToken, BlockEndToken):
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\LENOVO\Kidney-Disease-Classification-DL-Project-DVC\.venv\Lib\site-packages\yaml\scanner.py", line 116, in check_token
+    self.fetch_more_tokens()
+  File "C:\Users\LENOVO\Kidney-Disease-Classification-DL-Project-DVC\.venv\Lib\site-packages\yaml\scanner.py", line 251, in fetch_more_tokens
+    return self.fetch_double()
+           ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\LENOVO\Kidney-Disease-Classification-DL-Project-DVC\.venv\Lib\site-packages\yaml\scanner.py", line 655, in fetch_double
+    self.fetch_flow_scalar(style='"')
+  File "C:\Users\LENOVO\Kidney-Disease-Classification-DL-Project-DVC\.venv\Lib\site-packages\yaml\scanner.py", line 666, in fetch_flow_scalar
+    self.tokens.append(self.scan_flow_scalar(style))
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\LENOVO\Kidney-Disease-Classification-DL-Project-DVC\.venv\Lib\site-packages\yaml\scanner.py", line 1149, in scan_flow_scalar
+    chunks.extend(self.scan_flow_scalar_non_spaces(double, start_mark))
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\LENOVO\Kidney-Disease-Classification-DL-Project-DVC\.venv\Lib\site-packages\yaml\scanner.py", line 1213, in scan_flow_scalar_non_spaces
+    raise ScannerError("while scanning a double-quoted scalar", start_mark,
+yaml.scanner.ScannerError: while scanning a double-quoted scalar
+  in "config\config.yaml", line 5, column 15
+expected escape sequence of 8 hexadecimal numbers, but found 's'
+  in "config\config.yaml", line 5, column 20
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\LENOVO\Kidney-Disease-Classification-DL-Project-DVC\main.py", line 24, in <module>
+    pipeline.main()
+  File "C:\Users\LENOVO\Kidney-Disease-Classification-DL-Project-DVC\src\cnnClassifier\pipeline\stage_01_data_ingestion.py", line 17, in main
+    config = ConfigurationManager()
+             ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\LENOVO\Kidney-Disease-Classification-DL-Project-DVC\src\cnnClassifier\config\configuration.py", line 12, in __init__
+    self.config = read_yaml(config_filepath)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\LENOVO\Kidney-Disease-Classification-DL-Project-DVC\src\cnnClassifier\utils\common.py", line 19, in read_yaml
+    raise ValueError(f"Invalid YAML file: {path_to_yaml}\n{e}")
+ValueError: Invalid YAML file: config\config.yaml
+while scanning a double-quoted scalar
+  in "config\config.yaml", line 5, column 15
+expected escape sequence of 8 hexadecimal numbers, but found 's'
+  in "config\config.yaml", line 5, column 20
+[2026-06-10 01:56:58,931: INFO: common: yaml file: config\config.yaml loaded successfully]
+[2026-06-10 01:56:58,940: INFO: common: yaml file: params.yaml loaded successfully]
+[2026-06-10 01:56:58,945: INFO: common: created directory at: artifacts]
+[2026-06-10 02:00:46,558: INFO: common: yaml file: config\config.yaml loaded successfully]
+[2026-06-10 02:00:46,566: INFO: common: yaml file: params.yaml loaded successfully]
+[2026-06-10 02:00:46,569: INFO: common: created directory at: artifacts]
+[2026-06-10 02:00:48,066: INFO: common: yaml file: config\config.yaml loaded successfully]
+[2026-06-10 02:00:48,070: INFO: common: yaml file: params.yaml loaded successfully]
+[2026-06-10 02:00:48,074: INFO: common: created directory at: artifacts]
+[2026-06-10 02:00:50,048: INFO: common: yaml file: config\config.yaml loaded successfully]
+[2026-06-10 02:00:50,053: INFO: common: yaml file: params.yaml loaded successfully]
+[2026-06-10 02:00:50,057: INFO: common: created directory at: artifacts]
+[2026-06-10 02:00:51,091: INFO: common: yaml file: config\config.yaml loaded successfully]
+[2026-06-10 02:00:51,097: INFO: common: yaml file: params.yaml loaded successfully]
+[2026-06-10 02:00:51,101: INFO: common: created directory at: artifacts]
+[2026-06-10 02:03:01,056: INFO: common: yaml file: config\config.yaml loaded successfully]
+[2026-06-10 02:03:01,062: INFO: common: yaml file: params.yaml loaded successfully]
+[2026-06-10 02:03:01,065: INFO: common: created directory at: artifacts]
+[2026-06-10 02:03:15,071: INFO: common: yaml file: config\config.yaml loaded successfully]
+[2026-06-10 02:03:15,077: INFO: common: yaml file: params.yaml loaded successfully]
+[2026-06-10 02:03:15,077: INFO: common: created directory at: artifacts]
+[2026-06-10 02:05:19,835: INFO: common: yaml file: config\config.yaml loaded successfully]
+[2026-06-10 02:05:19,838: INFO: common: yaml file: params.yaml loaded successfully]
+[2026-06-10 02:05:19,840: INFO: common: created directory at: artifacts]
+[2026-06-10 02:05:27,098: INFO: common: yaml file: config\config.yaml loaded successfully]
+[2026-06-10 02:05:27,101: INFO: common: yaml file: params.yaml loaded successfully]
+[2026-06-10 02:05:27,103: INFO: common: created directory at: artifacts]
+[2026-06-10 02:06:48,325: INFO: common: yaml file: config\config.yaml loaded successfully]
+[2026-06-10 02:06:48,329: INFO: common: yaml file: params.yaml loaded successfully]
+[2026-06-10 02:06:48,331: INFO: common: created directory at: artifacts]
+[2026-06-10 02:06:50,668: INFO: common: yaml file: config\config.yaml loaded successfully]
+[2026-06-10 02:06:50,671: INFO: common: yaml file: params.yaml loaded successfully]
+[2026-06-10 02:06:50,672: INFO: common: created directory at: artifacts]
+[2026-06-10 02:10:01,409: INFO: common: yaml file: config\config.yaml loaded successfully]
+[2026-06-10 02:10:01,415: INFO: common: yaml file: params.yaml loaded successfully]
+[2026-06-10 02:10:01,420: INFO: common: created directory at: artifacts]
+[2026-06-10 02:10:50,037: WARNING: saving_utils: Compiled the loaded model, but the compiled metrics have yet to be built. `model.compile_metrics` will be empty until you train or evaluate the model.]
+[2026-06-11 02:11:57,826: INFO: main: >>>>>> stage Data Ingestion stage started <<<<<<]
+[2026-06-11 02:11:57,827: INFO: common: yaml file: C:\Users\LENOVO\Kidney-Disease-Classification-DL-Project-DVC\config\config.yaml loaded successfully]
+[2026-06-11 02:11:57,829: INFO: common: yaml file: C:\Users\LENOVO\Kidney-Disease-Classification-DL-Project-DVC\params.yaml loaded successfully]
+[2026-06-11 02:11:57,829: INFO: common: created directory at: artifacts]
+[2026-06-11 02:11:57,830: INFO: common: created directory at: artifacts/data_ingestion]
+[2026-06-11 02:11:57,830: INFO: data_ingestion: Copying data from C:\Users\LENOVO\Kidney-Disease-Classification-DL-Project-DVC\kidney.zip to artifacts\data_ingestion\data.zip]
+[2026-06-11 02:11:57,830: INFO: data_ingestion: File already exists at: artifacts\data_ingestion\data.zip]
+[2026-06-11 02:11:57,830: INFO: data_ingestion: Extracting artifacts\data_ingestion\data.zip to artifacts\data_ingestion]
+[2026-06-11 02:11:59,299: INFO: data_ingestion: Extraction completed successfully!]
+[2026-06-11 02:11:59,300: INFO: main: >>>>>> stage Data Ingestion stage completed <<<<<<
+
+x==========x]
+[2026-06-11 02:11:59,300: INFO: main: *******************]
+[2026-06-11 02:11:59,300: INFO: main: >>>>>> stage Prepare base model started <<<<<<]
+[2026-06-11 02:11:59,301: INFO: common: yaml file: C:\Users\LENOVO\Kidney-Disease-Classification-DL-Project-DVC\config\config.yaml loaded successfully]
+[2026-06-11 02:11:59,302: INFO: common: yaml file: C:\Users\LENOVO\Kidney-Disease-Classification-DL-Project-DVC\params.yaml loaded successfully]
+[2026-06-11 02:11:59,302: INFO: common: created directory at: artifacts]
+[2026-06-11 02:11:59,303: INFO: common: created directory at: artifacts/prepare_base_model]
+[2026-06-11 02:12:00,086: WARNING: saving_api: You are saving your model as an HDF5 file via `model.save()` or `keras.saving.save_model(model)`. This file format is considered legacy. We recommend using instead the native Keras format, e.g. `model.save('my_model.keras')` or `keras.saving.save_model(model, 'my_model.keras')`. ]
+[2026-06-11 02:12:00,351: WARNING: saving_api: You are saving your model as an HDF5 file via `model.save()` or `keras.saving.save_model(model)`. This file format is considered legacy. We recommend using instead the native Keras format, e.g. `model.save('my_model.keras')` or `keras.saving.save_model(model, 'my_model.keras')`. ]
+[2026-06-11 02:12:00,452: INFO: main: >>>>>> stage Prepare base model completed <<<<<<
+
+x==========x]

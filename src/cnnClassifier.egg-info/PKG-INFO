@@ -1,0 +1,57 @@
+Metadata-Version: 2.4
+Name: cnnClassifier
+Version: 0.0.0
+Summary: A small package for Kidney Disease Classification using Deep Learning
+Home-page: https://github.com/Anshika Sahu/Kidney-Disease-Classification-DL-Project-DVC
+Author: Anshika Sahu
+Author-email: anshikasahu3234@gmail.com
+Project-URL: Bug Tracker, https://github.com/Anshika Sahu/Kidney-Disease-Classification-DL-Project-DVC/issues
+Description-Content-Type: text/markdown
+Dynamic: author
+Dynamic: author-email
+Dynamic: description
+Dynamic: description-content-type
+Dynamic: home-page
+Dynamic: project-url
+Dynamic: summary
+
+# Kidney-Disease-Classification-MLflow-DVC 
+
+
+##Workflows 
+
+1. Update config.yaml
+2. Update secrets.yaml [optional]
+3. Update params.yaml
+4. Update the entity 
+5. Update the configuration manager in src config 
+6. Update the components
+7. Update the pipeline 
+8. Update the main.py 
+9. Update the dvc.yaml 
+10. app.py
+
+# How to run?
+
+### STEPS:
+Clone the repository 
+
+'''bash 
+
+https://github.com/Anshika102005/Kidney-Disease-Classification-DL-Project-DVC
+
+### STEP 01- Create a conda environment after opening the repository 
+
+'''bash 
+conda create -n cnncls python=3.8 -y
+'''
+
+'''bash 
+conda activate cnncls
+'''
+
+### STEP 02- install the requirements 
+
+'''bash 
+pip install -r requirements.txt 
+'''
