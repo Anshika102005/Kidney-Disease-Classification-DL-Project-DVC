@@ -16,6 +16,12 @@ class Training:
         self.model = tf.keras.models.load_model(
             self.config.updated_base_model_path
         )
+        # Recompile with fresh optimizer to avoid variable mismatch
+        self.model.compile(
+            optimizer=tf.keras.optimizers.Adam(learning_rate=0.01),
+            loss='categorical_crossentropy',
+            metrics=['accuracy']
+        )
 
     def train_valid_generator(self):
 
@@ -65,8 +71,6 @@ class Training:
     @staticmethod
     def save_model(path: Path, model: tf.keras.Model):
         model.save(path)
-
-
 
     
     def train(self):

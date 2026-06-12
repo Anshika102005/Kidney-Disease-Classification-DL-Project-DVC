@@ -1,9 +1,11 @@
-TrainingArguments:
-  epochs: 5
-  batch_size: 16
-  augmentation: True
-  learning_rate: 0.01
-  include_top: False
-  weights: imagenet
-  image_size: [224, 224, 3]
-  classes: 2
+EPOCHS: 5
+BATCH_SIZE: 16
+AUGMENTATION: True
+LEARNING_RATE: 0.01
+INCLUDE_TOP: False
+WEIGHTS: imagenet
+IMAGE_SIZE:
+  - 224
+  - 224
+  - 3
+CLASSES: 2

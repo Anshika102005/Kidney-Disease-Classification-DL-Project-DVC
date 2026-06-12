@@ -459,3 +459,405 @@ x==========x]
 [2026-06-11 04:16:44,213: INFO: common: yaml file: params.yaml loaded successfully]
 [2026-06-11 04:16:44,215: INFO: common: created directory at: artifacts]
 [2026-06-11 04:16:44,612: WARNING: saving_utils: Compiled the loaded model, but the compiled metrics have yet to be built. `model.compile_metrics` will be empty until you train or evaluate the model.]
+[2026-06-13 02:02:00,775: INFO: main: >>>>>> stage Data Ingestion stage started <<<<<<]
+[2026-06-13 02:02:00,777: INFO: common: yaml file: C:\Users\LENOVO\Kidney-Disease-Classification-DL-Project-DVC\config\config.yaml loaded successfully]
+[2026-06-13 02:02:00,779: INFO: common: yaml file: C:\Users\LENOVO\Kidney-Disease-Classification-DL-Project-DVC\params.yaml loaded successfully]
+[2026-06-13 02:02:00,780: INFO: common: created directory at: artifacts]
+[2026-06-13 02:02:00,780: INFO: common: created directory at: artifacts/data_ingestion]
+[2026-06-13 02:02:00,780: INFO: data_ingestion: Copying data from C:\Users\LENOVO\Kidney-Disease-Classification-DL-Project-DVC\kidney.zip to artifacts\data_ingestion\data.zip]
+[2026-06-13 02:02:00,781: INFO: data_ingestion: File already exists at: artifacts\data_ingestion\data.zip]
+[2026-06-13 02:02:00,785: INFO: data_ingestion: Extracting artifacts\data_ingestion\data.zip to artifacts\data_ingestion]
+[2026-06-13 02:02:02,043: INFO: data_ingestion: Extraction completed successfully!]
+[2026-06-13 02:02:02,043: INFO: main: >>>>>> stage Data Ingestion stage completed <<<<<<
+
+x==========x]
+[2026-06-13 02:02:02,043: INFO: main: *******************]
+[2026-06-13 02:02:02,044: INFO: main: >>>>>> stage Prepare base model started <<<<<<]
+[2026-06-13 02:02:02,044: INFO: common: yaml file: C:\Users\LENOVO\Kidney-Disease-Classification-DL-Project-DVC\config\config.yaml loaded successfully]
+[2026-06-13 02:02:02,045: INFO: common: yaml file: C:\Users\LENOVO\Kidney-Disease-Classification-DL-Project-DVC\params.yaml loaded successfully]
+[2026-06-13 02:02:02,046: INFO: common: created directory at: artifacts]
+[2026-06-13 02:02:02,046: INFO: common: created directory at: artifacts/prepare_base_model]
+[2026-06-13 02:02:02,708: WARNING: saving_api: You are saving your model as an HDF5 file via `model.save()` or `keras.saving.save_model(model)`. This file format is considered legacy. We recommend using instead the native Keras format, e.g. `model.save('my_model.keras')` or `keras.saving.save_model(model, 'my_model.keras')`. ]
+[2026-06-13 02:02:02,869: WARNING: saving_api: You are saving your model as an HDF5 file via `model.save()` or `keras.saving.save_model(model)`. This file format is considered legacy. We recommend using instead the native Keras format, e.g. `model.save('my_model.keras')` or `keras.saving.save_model(model, 'my_model.keras')`. ]
+[2026-06-13 02:02:02,996: INFO: main: >>>>>> stage Prepare base model completed <<<<<<
+
+x==========x]
+[2026-06-13 02:02:02,996: INFO: main: *******************]
+[2026-06-13 02:02:02,997: INFO: main: >>>>>> stage Training started <<<<<<]
+[2026-06-13 02:02:02,998: INFO: common: yaml file: C:\Users\LENOVO\Kidney-Disease-Classification-DL-Project-DVC\config\config.yaml loaded successfully]
+[2026-06-13 02:02:02,999: INFO: common: yaml file: C:\Users\LENOVO\Kidney-Disease-Classification-DL-Project-DVC\params.yaml loaded successfully]
+[2026-06-13 02:02:02,999: INFO: common: created directory at: artifacts]
+[2026-06-13 02:02:02,999: INFO: common: created directory at: artifacts\training]
+[2026-06-13 02:02:03,000: ERROR: main: "'Box' object has no attribute 'EPOCHS'"]
+Traceback (most recent call last):
+  File "box/box.py", line 605, in box.box.Box.__getitem__
+KeyError: 'EPOCHS'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "box/box.py", line 644, in box.box.Box.__getattr__
+  File "box/box.py", line 632, in box.box.Box.__getitem__
+box.exceptions.BoxKeyError: "'EPOCHS'"
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "box/box.py", line 646, in box.box.Box.__getattr__
+AttributeError: 'Box' object has no attribute 'EPOCHS'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\LENOVO\Kidney-Disease-Classification-DL-Project-DVC\main.py", line 42, in <module>
+    model_trainer.main()
+  File "C:\Users\LENOVO\Kidney-Disease-Classification-DL-Project-DVC\src\cnnClassifier\pipeline\stage_03_model_training.py", line 17, in main
+    training_config = config.get_training_config()
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\LENOVO\Kidney-Disease-Classification-DL-Project-DVC\src\cnnClassifier\config\configuration.py", line 68, in get_training_config
+    params_epochs=params.EPOCHS,
+                  ^^^^^^^^^^^^^
+  File "box/box.py", line 660, in box.box.Box.__getattr__
+box.exceptions.BoxKeyError: "'Box' object has no attribute 'EPOCHS'"
+[2026-06-13 02:05:12,387: INFO: main: >>>>>> stage Data Ingestion stage started <<<<<<]
+[2026-06-13 02:05:12,388: INFO: common: yaml file: C:\Users\LENOVO\Kidney-Disease-Classification-DL-Project-DVC\config\config.yaml loaded successfully]
+[2026-06-13 02:05:12,390: INFO: common: yaml file: C:\Users\LENOVO\Kidney-Disease-Classification-DL-Project-DVC\params.yaml loaded successfully]
+[2026-06-13 02:05:12,390: INFO: common: created directory at: artifacts]
+[2026-06-13 02:05:12,390: INFO: common: created directory at: artifacts/data_ingestion]
+[2026-06-13 02:05:12,391: INFO: data_ingestion: Copying data from C:\Users\LENOVO\Kidney-Disease-Classification-DL-Project-DVC\kidney.zip to artifacts\data_ingestion\data.zip]
+[2026-06-13 02:05:12,391: INFO: data_ingestion: File already exists at: artifacts\data_ingestion\data.zip]
+[2026-06-13 02:05:12,391: INFO: data_ingestion: Extracting artifacts\data_ingestion\data.zip to artifacts\data_ingestion]
+[2026-06-13 02:05:13,295: INFO: data_ingestion: Extraction completed successfully!]
+[2026-06-13 02:05:13,296: INFO: main: >>>>>> stage Data Ingestion stage completed <<<<<<
+
+x==========x]
+[2026-06-13 02:05:13,296: INFO: main: *******************]
+[2026-06-13 02:05:13,296: INFO: main: >>>>>> stage Prepare base model started <<<<<<]
+[2026-06-13 02:05:13,297: INFO: common: yaml file: C:\Users\LENOVO\Kidney-Disease-Classification-DL-Project-DVC\config\config.yaml loaded successfully]
+[2026-06-13 02:05:13,298: INFO: common: yaml file: C:\Users\LENOVO\Kidney-Disease-Classification-DL-Project-DVC\params.yaml loaded successfully]
+[2026-06-13 02:05:13,298: INFO: common: created directory at: artifacts]
+[2026-06-13 02:05:13,298: INFO: common: created directory at: artifacts/prepare_base_model]
+[2026-06-13 02:05:13,596: WARNING: saving_api: You are saving your model as an HDF5 file via `model.save()` or `keras.saving.save_model(model)`. This file format is considered legacy. We recommend using instead the native Keras format, e.g. `model.save('my_model.keras')` or `keras.saving.save_model(model, 'my_model.keras')`. ]
+[2026-06-13 02:05:13,726: WARNING: saving_api: You are saving your model as an HDF5 file via `model.save()` or `keras.saving.save_model(model)`. This file format is considered legacy. We recommend using instead the native Keras format, e.g. `model.save('my_model.keras')` or `keras.saving.save_model(model, 'my_model.keras')`. ]
+[2026-06-13 02:05:13,817: INFO: main: >>>>>> stage Prepare base model completed <<<<<<
+
+x==========x]
+[2026-06-13 02:05:13,817: INFO: main: *******************]
+[2026-06-13 02:05:13,817: INFO: main: >>>>>> stage Training started <<<<<<]
+[2026-06-13 02:05:13,818: INFO: common: yaml file: C:\Users\LENOVO\Kidney-Disease-Classification-DL-Project-DVC\config\config.yaml loaded successfully]
+[2026-06-13 02:05:13,819: INFO: common: yaml file: C:\Users\LENOVO\Kidney-Disease-Classification-DL-Project-DVC\params.yaml loaded successfully]
+[2026-06-13 02:05:13,819: INFO: common: created directory at: artifacts]
+[2026-06-13 02:05:13,820: INFO: common: created directory at: artifacts\training]
+[2026-06-13 02:05:13,953: WARNING: saving_utils: Compiled the loaded model, but the compiled metrics have yet to be built. `model.compile_metrics` will be empty until you train or evaluate the model.]
+[2026-06-13 02:05:13,957: ERROR: main: [WinError 3] The system cannot find the path specified: 'artifacts\\data_ingestion\\kidney-ct-scan-image']
+Traceback (most recent call last):
+  File "C:\Users\LENOVO\Kidney-Disease-Classification-DL-Project-DVC\main.py", line 42, in <module>
+    model_trainer.main()
+  File "C:\Users\LENOVO\Kidney-Disease-Classification-DL-Project-DVC\src\cnnClassifier\pipeline\stage_03_model_training.py", line 20, in main
+    training.train_valid_generator()
+  File "C:\Users\LENOVO\Kidney-Disease-Classification-DL-Project-DVC\src\cnnClassifier\components\model_training.py", line 37, in train_valid_generator
+    self.valid_generator = valid_datagenerator.flow_from_directory(
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\LENOVO\Kidney-Disease-Classification-DL-Project-DVC\.venv\Lib\site-packages\keras\src\legacy\preprocessing\image.py", line 1136, in flow_from_directory
+    return DirectoryIterator(
+           ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\LENOVO\Kidney-Disease-Classification-DL-Project-DVC\.venv\Lib\site-packages\keras\src\legacy\preprocessing\image.py", line 456, in __init__
+    for subdir in sorted(os.listdir(directory)):
+                         ^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [WinError 3] The system cannot find the path specified: 'artifacts\\data_ingestion\\kidney-ct-scan-image'
+[2026-06-13 02:10:13,436: INFO: main: >>>>>> stage Data Ingestion stage started <<<<<<]
+[2026-06-13 02:10:13,438: INFO: common: yaml file: C:\Users\LENOVO\Kidney-Disease-Classification-DL-Project-DVC\config\config.yaml loaded successfully]
+[2026-06-13 02:10:13,438: INFO: common: yaml file: C:\Users\LENOVO\Kidney-Disease-Classification-DL-Project-DVC\params.yaml loaded successfully]
+[2026-06-13 02:10:13,439: INFO: common: created directory at: artifacts]
+[2026-06-13 02:10:13,439: INFO: common: created directory at: artifacts/data_ingestion]
+[2026-06-13 02:10:13,439: INFO: data_ingestion: Copying data from C:\Users\LENOVO\Kidney-Disease-Classification-DL-Project-DVC\kidney.zip to artifacts\data_ingestion\data.zip]
+[2026-06-13 02:10:13,440: INFO: data_ingestion: File already exists at: artifacts\data_ingestion\data.zip]
+[2026-06-13 02:10:13,440: INFO: data_ingestion: Extracting artifacts\data_ingestion\data.zip to artifacts\data_ingestion]
+[2026-06-13 02:10:14,425: INFO: data_ingestion: Extraction completed successfully!]
+[2026-06-13 02:10:14,426: INFO: main: >>>>>> stage Data Ingestion stage completed <<<<<<
+
+x==========x]
+[2026-06-13 02:10:14,426: INFO: main: *******************]
+[2026-06-13 02:10:14,426: INFO: main: >>>>>> stage Prepare base model started <<<<<<]
+[2026-06-13 02:10:14,427: INFO: common: yaml file: C:\Users\LENOVO\Kidney-Disease-Classification-DL-Project-DVC\config\config.yaml loaded successfully]
+[2026-06-13 02:10:14,428: INFO: common: yaml file: C:\Users\LENOVO\Kidney-Disease-Classification-DL-Project-DVC\params.yaml loaded successfully]
+[2026-06-13 02:10:14,428: INFO: common: created directory at: artifacts]
+[2026-06-13 02:10:14,429: INFO: common: created directory at: artifacts/prepare_base_model]
+[2026-06-13 02:10:14,715: WARNING: saving_api: You are saving your model as an HDF5 file via `model.save()` or `keras.saving.save_model(model)`. This file format is considered legacy. We recommend using instead the native Keras format, e.g. `model.save('my_model.keras')` or `keras.saving.save_model(model, 'my_model.keras')`. ]
+[2026-06-13 02:10:14,832: WARNING: saving_api: You are saving your model as an HDF5 file via `model.save()` or `keras.saving.save_model(model)`. This file format is considered legacy. We recommend using instead the native Keras format, e.g. `model.save('my_model.keras')` or `keras.saving.save_model(model, 'my_model.keras')`. ]
+[2026-06-13 02:10:14,911: INFO: main: >>>>>> stage Prepare base model completed <<<<<<
+
+x==========x]
+[2026-06-13 02:10:14,911: INFO: main: *******************]
+[2026-06-13 02:10:14,911: INFO: main: >>>>>> stage Training started <<<<<<]
+[2026-06-13 02:10:14,912: INFO: common: yaml file: C:\Users\LENOVO\Kidney-Disease-Classification-DL-Project-DVC\config\config.yaml loaded successfully]
+[2026-06-13 02:10:14,913: INFO: common: yaml file: C:\Users\LENOVO\Kidney-Disease-Classification-DL-Project-DVC\params.yaml loaded successfully]
+[2026-06-13 02:10:14,913: INFO: common: created directory at: artifacts]
+[2026-06-13 02:10:14,914: INFO: common: created directory at: artifacts\training]
+[2026-06-13 02:10:15,042: WARNING: saving_utils: Compiled the loaded model, but the compiled metrics have yet to be built. `model.compile_metrics` will be empty until you train or evaluate the model.]
+[2026-06-13 02:10:15,045: ERROR: main: [WinError 3] The system cannot find the path specified: 'artifacts\\data_ingestion\\kidney-ct-scan-image']
+Traceback (most recent call last):
+  File "C:\Users\LENOVO\Kidney-Disease-Classification-DL-Project-DVC\main.py", line 42, in <module>
+    model_trainer.main()
+  File "C:\Users\LENOVO\Kidney-Disease-Classification-DL-Project-DVC\src\cnnClassifier\pipeline\stage_03_model_training.py", line 20, in main
+    training.train_valid_generator()
+  File "C:\Users\LENOVO\Kidney-Disease-Classification-DL-Project-DVC\src\cnnClassifier\components\model_training.py", line 37, in train_valid_generator
+    self.valid_generator = valid_datagenerator.flow_from_directory(
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\LENOVO\Kidney-Disease-Classification-DL-Project-DVC\.venv\Lib\site-packages\keras\src\legacy\preprocessing\image.py", line 1136, in flow_from_directory
+    return DirectoryIterator(
+           ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\LENOVO\Kidney-Disease-Classification-DL-Project-DVC\.venv\Lib\site-packages\keras\src\legacy\preprocessing\image.py", line 456, in __init__
+    for subdir in sorted(os.listdir(directory)):
+                         ^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [WinError 3] The system cannot find the path specified: 'artifacts\\data_ingestion\\kidney-ct-scan-image'
+[2026-06-13 02:14:01,541: INFO: main: >>>>>> stage Data Ingestion stage started <<<<<<]
+[2026-06-13 02:14:01,542: INFO: common: yaml file: C:\Users\LENOVO\Kidney-Disease-Classification-DL-Project-DVC\config\config.yaml loaded successfully]
+[2026-06-13 02:14:01,543: INFO: common: yaml file: C:\Users\LENOVO\Kidney-Disease-Classification-DL-Project-DVC\params.yaml loaded successfully]
+[2026-06-13 02:14:01,543: INFO: common: created directory at: artifacts]
+[2026-06-13 02:14:01,544: INFO: common: created directory at: artifacts/data_ingestion]
+[2026-06-13 02:14:01,544: INFO: data_ingestion: Copying data from C:\Users\LENOVO\Kidney-Disease-Classification-DL-Project-DVC\kidney.zip to artifacts\data_ingestion\data.zip]
+[2026-06-13 02:14:01,544: INFO: data_ingestion: File already exists at: artifacts\data_ingestion\data.zip]
+[2026-06-13 02:14:01,545: INFO: data_ingestion: Extracting artifacts\data_ingestion\data.zip to artifacts\data_ingestion]
+[2026-06-13 02:14:02,730: INFO: data_ingestion: Extraction completed successfully!]
+[2026-06-13 02:14:02,730: INFO: main: >>>>>> stage Data Ingestion stage completed <<<<<<
+
+x==========x]
+[2026-06-13 02:14:02,730: INFO: main: *******************]
+[2026-06-13 02:14:02,730: INFO: main: >>>>>> stage Prepare base model started <<<<<<]
+[2026-06-13 02:14:02,731: INFO: common: yaml file: C:\Users\LENOVO\Kidney-Disease-Classification-DL-Project-DVC\config\config.yaml loaded successfully]
+[2026-06-13 02:14:02,732: INFO: common: yaml file: C:\Users\LENOVO\Kidney-Disease-Classification-DL-Project-DVC\params.yaml loaded successfully]
+[2026-06-13 02:14:02,733: INFO: common: created directory at: artifacts]
+[2026-06-13 02:14:02,734: INFO: common: created directory at: artifacts/prepare_base_model]
+[2026-06-13 02:14:03,077: WARNING: saving_api: You are saving your model as an HDF5 file via `model.save()` or `keras.saving.save_model(model)`. This file format is considered legacy. We recommend using instead the native Keras format, e.g. `model.save('my_model.keras')` or `keras.saving.save_model(model, 'my_model.keras')`. ]
+[2026-06-13 02:14:03,241: WARNING: saving_api: You are saving your model as an HDF5 file via `model.save()` or `keras.saving.save_model(model)`. This file format is considered legacy. We recommend using instead the native Keras format, e.g. `model.save('my_model.keras')` or `keras.saving.save_model(model, 'my_model.keras')`. ]
+[2026-06-13 02:14:03,358: INFO: main: >>>>>> stage Prepare base model completed <<<<<<
+
+x==========x]
+[2026-06-13 02:14:03,359: INFO: main: *******************]
+[2026-06-13 02:14:03,359: INFO: main: >>>>>> stage Training started <<<<<<]
+[2026-06-13 02:14:03,360: INFO: common: yaml file: C:\Users\LENOVO\Kidney-Disease-Classification-DL-Project-DVC\config\config.yaml loaded successfully]
+[2026-06-13 02:14:03,361: INFO: common: yaml file: C:\Users\LENOVO\Kidney-Disease-Classification-DL-Project-DVC\params.yaml loaded successfully]
+[2026-06-13 02:14:03,361: INFO: common: created directory at: artifacts]
+[2026-06-13 02:14:03,361: INFO: common: created directory at: artifacts\training]
+[2026-06-13 02:14:03,521: WARNING: saving_utils: Compiled the loaded model, but the compiled metrics have yet to be built. `model.compile_metrics` will be empty until you train or evaluate the model.]
+[2026-06-13 02:14:03,566: ERROR: main: Could not import PIL.Image. The use of `load_img` requires PIL.]
+Traceback (most recent call last):
+  File "C:\Users\LENOVO\Kidney-Disease-Classification-DL-Project-DVC\main.py", line 42, in <module>
+    model_trainer.main()
+  File "C:\Users\LENOVO\Kidney-Disease-Classification-DL-Project-DVC\src\cnnClassifier\pipeline\stage_03_model_training.py", line 21, in main
+    training.train()
+  File "C:\Users\LENOVO\Kidney-Disease-Classification-DL-Project-DVC\src\cnnClassifier\components\model_training.py", line 76, in train
+    self.model.fit(
+  File "C:\Users\LENOVO\Kidney-Disease-Classification-DL-Project-DVC\.venv\Lib\site-packages\keras\src\utils\traceback_utils.py", line 122, in error_handler
+    raise e.with_traceback(filtered_tb) from None
+  File "C:\Users\LENOVO\Kidney-Disease-Classification-DL-Project-DVC\.venv\Lib\site-packages\keras\src\utils\image_utils.py", line 239, in load_img
+    raise ImportError(
+ImportError: Could not import PIL.Image. The use of `load_img` requires PIL.
+[2026-06-13 02:21:57,341: INFO: common: yaml file: C:\Users\LENOVO\Kidney-Disease-Classification-DL-Project-DVC\config\config.yaml loaded successfully]
+[2026-06-13 02:21:57,344: INFO: common: yaml file: C:\Users\LENOVO\Kidney-Disease-Classification-DL-Project-DVC\params.yaml loaded successfully]
+[2026-06-13 02:21:57,345: INFO: common: created directory at: artifacts]
+[2026-06-13 02:21:57,345: INFO: common: created directory at: artifacts\training]
+[2026-06-13 02:23:04,279: INFO: main: >>>>>> stage Data Ingestion stage started <<<<<<]
+[2026-06-13 02:23:04,280: INFO: common: yaml file: C:\Users\LENOVO\Kidney-Disease-Classification-DL-Project-DVC\config\config.yaml loaded successfully]
+[2026-06-13 02:23:04,281: INFO: common: yaml file: C:\Users\LENOVO\Kidney-Disease-Classification-DL-Project-DVC\params.yaml loaded successfully]
+[2026-06-13 02:23:04,282: INFO: common: created directory at: artifacts]
+[2026-06-13 02:23:04,282: INFO: common: created directory at: artifacts/data_ingestion]
+[2026-06-13 02:23:04,282: INFO: data_ingestion: Copying data from C:\Users\LENOVO\Kidney-Disease-Classification-DL-Project-DVC\kidney.zip to artifacts\data_ingestion\data.zip]
+[2026-06-13 02:23:04,282: INFO: data_ingestion: File already exists at: artifacts\data_ingestion\data.zip]
+[2026-06-13 02:23:04,283: INFO: data_ingestion: Extracting artifacts\data_ingestion\data.zip to artifacts\data_ingestion]
+[2026-06-13 02:23:05,306: INFO: data_ingestion: Extraction completed successfully!]
+[2026-06-13 02:23:05,306: INFO: main: >>>>>> stage Data Ingestion stage completed <<<<<<
+
+x==========x]
+[2026-06-13 02:23:05,306: INFO: main: *******************]
+[2026-06-13 02:23:05,306: INFO: main: >>>>>> stage Prepare base model started <<<<<<]
+[2026-06-13 02:23:05,308: INFO: common: yaml file: C:\Users\LENOVO\Kidney-Disease-Classification-DL-Project-DVC\config\config.yaml loaded successfully]
+[2026-06-13 02:23:05,309: INFO: common: yaml file: C:\Users\LENOVO\Kidney-Disease-Classification-DL-Project-DVC\params.yaml loaded successfully]
+[2026-06-13 02:23:05,309: INFO: common: created directory at: artifacts]
+[2026-06-13 02:23:05,310: INFO: common: created directory at: artifacts/prepare_base_model]
+[2026-06-13 02:23:05,825: WARNING: saving_api: You are saving your model as an HDF5 file via `model.save()` or `keras.saving.save_model(model)`. This file format is considered legacy. We recommend using instead the native Keras format, e.g. `model.save('my_model.keras')` or `keras.saving.save_model(model, 'my_model.keras')`. ]
+[2026-06-13 02:23:05,971: WARNING: saving_api: You are saving your model as an HDF5 file via `model.save()` or `keras.saving.save_model(model)`. This file format is considered legacy. We recommend using instead the native Keras format, e.g. `model.save('my_model.keras')` or `keras.saving.save_model(model, 'my_model.keras')`. ]
+[2026-06-13 02:23:06,064: INFO: main: >>>>>> stage Prepare base model completed <<<<<<
+
+x==========x]
+[2026-06-13 02:23:06,065: INFO: main: *******************]
+[2026-06-13 02:23:06,065: INFO: main: >>>>>> stage Training started <<<<<<]
+[2026-06-13 02:23:06,066: INFO: common: yaml file: C:\Users\LENOVO\Kidney-Disease-Classification-DL-Project-DVC\config\config.yaml loaded successfully]
+[2026-06-13 02:23:06,067: INFO: common: yaml file: C:\Users\LENOVO\Kidney-Disease-Classification-DL-Project-DVC\params.yaml loaded successfully]
+[2026-06-13 02:23:06,067: INFO: common: created directory at: artifacts]
+[2026-06-13 02:23:06,067: INFO: common: created directory at: artifacts\training]
+[2026-06-13 02:23:06,209: WARNING: saving_utils: Compiled the loaded model, but the compiled metrics have yet to be built. `model.compile_metrics` will be empty until you train or evaluate the model.]
+[2026-06-13 02:23:06,257: ERROR: main: Could not import PIL.Image. The use of `load_img` requires PIL.]
+Traceback (most recent call last):
+  File "C:\Users\LENOVO\Kidney-Disease-Classification-DL-Project-DVC\main.py", line 42, in <module>
+    model_trainer.main()
+  File "C:\Users\LENOVO\Kidney-Disease-Classification-DL-Project-DVC\src\cnnClassifier\pipeline\stage_03_model_training.py", line 21, in main
+    training.train()
+  File "C:\Users\LENOVO\Kidney-Disease-Classification-DL-Project-DVC\src\cnnClassifier\components\model_training.py", line 76, in train
+    self.model.fit(
+  File "C:\Users\LENOVO\Kidney-Disease-Classification-DL-Project-DVC\.venv\Lib\site-packages\keras\src\utils\traceback_utils.py", line 122, in error_handler
+    raise e.with_traceback(filtered_tb) from None
+  File "C:\Users\LENOVO\Kidney-Disease-Classification-DL-Project-DVC\.venv\Lib\site-packages\keras\src\utils\image_utils.py", line 239, in load_img
+    raise ImportError(
+ImportError: Could not import PIL.Image. The use of `load_img` requires PIL.
+[2026-06-13 02:26:11,310: INFO: main: >>>>>> stage Data Ingestion stage started <<<<<<]
+[2026-06-13 02:26:11,311: INFO: common: yaml file: C:\Users\LENOVO\Kidney-Disease-Classification-DL-Project-DVC\config\config.yaml loaded successfully]
+[2026-06-13 02:26:11,313: INFO: common: yaml file: C:\Users\LENOVO\Kidney-Disease-Classification-DL-Project-DVC\params.yaml loaded successfully]
+[2026-06-13 02:26:11,314: INFO: common: created directory at: artifacts]
+[2026-06-13 02:26:11,314: INFO: common: created directory at: artifacts/data_ingestion]
+[2026-06-13 02:26:11,315: INFO: data_ingestion: Copying data from C:\Users\LENOVO\Kidney-Disease-Classification-DL-Project-DVC\kidney.zip to artifacts\data_ingestion\data.zip]
+[2026-06-13 02:26:11,315: INFO: data_ingestion: File already exists at: artifacts\data_ingestion\data.zip]
+[2026-06-13 02:26:11,315: INFO: data_ingestion: Extracting artifacts\data_ingestion\data.zip to artifacts\data_ingestion]
+[2026-06-13 02:26:12,509: INFO: data_ingestion: Extraction completed successfully!]
+[2026-06-13 02:26:12,510: INFO: main: >>>>>> stage Data Ingestion stage completed <<<<<<
+
+x==========x]
+[2026-06-13 02:26:12,510: INFO: main: *******************]
+[2026-06-13 02:26:12,510: INFO: main: >>>>>> stage Prepare base model started <<<<<<]
+[2026-06-13 02:26:12,511: INFO: common: yaml file: C:\Users\LENOVO\Kidney-Disease-Classification-DL-Project-DVC\config\config.yaml loaded successfully]
+[2026-06-13 02:26:12,512: INFO: common: yaml file: C:\Users\LENOVO\Kidney-Disease-Classification-DL-Project-DVC\params.yaml loaded successfully]
+[2026-06-13 02:26:12,512: INFO: common: created directory at: artifacts]
+[2026-06-13 02:26:12,513: INFO: common: created directory at: artifacts/prepare_base_model]
+[2026-06-13 02:26:12,860: WARNING: saving_api: You are saving your model as an HDF5 file via `model.save()` or `keras.saving.save_model(model)`. This file format is considered legacy. We recommend using instead the native Keras format, e.g. `model.save('my_model.keras')` or `keras.saving.save_model(model, 'my_model.keras')`. ]
+[2026-06-13 02:26:13,022: WARNING: saving_api: You are saving your model as an HDF5 file via `model.save()` or `keras.saving.save_model(model)`. This file format is considered legacy. We recommend using instead the native Keras format, e.g. `model.save('my_model.keras')` or `keras.saving.save_model(model, 'my_model.keras')`. ]
+[2026-06-13 02:26:13,150: INFO: main: >>>>>> stage Prepare base model completed <<<<<<
+
+x==========x]
+[2026-06-13 02:26:13,150: INFO: main: *******************]
+[2026-06-13 02:26:13,151: INFO: main: >>>>>> stage Training started <<<<<<]
+[2026-06-13 02:26:13,152: INFO: common: yaml file: C:\Users\LENOVO\Kidney-Disease-Classification-DL-Project-DVC\config\config.yaml loaded successfully]
+[2026-06-13 02:26:13,153: INFO: common: yaml file: C:\Users\LENOVO\Kidney-Disease-Classification-DL-Project-DVC\params.yaml loaded successfully]
+[2026-06-13 02:26:13,153: INFO: common: created directory at: artifacts]
+[2026-06-13 02:26:13,154: INFO: common: created directory at: artifacts\training]
+[2026-06-13 02:26:13,314: WARNING: saving_utils: Compiled the loaded model, but the compiled metrics have yet to be built. `model.compile_metrics` will be empty until you train or evaluate the model.]
+[2026-06-13 02:26:13,386: ERROR: main: This requires the scipy module. You can install it via `pip install scipy`]
+Traceback (most recent call last):
+  File "C:\Users\LENOVO\Kidney-Disease-Classification-DL-Project-DVC\main.py", line 42, in <module>
+    model_trainer.main()
+  File "C:\Users\LENOVO\Kidney-Disease-Classification-DL-Project-DVC\src\cnnClassifier\pipeline\stage_03_model_training.py", line 21, in main
+    training.train()
+  File "C:\Users\LENOVO\Kidney-Disease-Classification-DL-Project-DVC\src\cnnClassifier\components\model_training.py", line 76, in train
+    self.model.fit(
+  File "C:\Users\LENOVO\Kidney-Disease-Classification-DL-Project-DVC\.venv\Lib\site-packages\keras\src\utils\traceback_utils.py", line 122, in error_handler
+    raise e.with_traceback(filtered_tb) from None
+  File "C:\Users\LENOVO\Kidney-Disease-Classification-DL-Project-DVC\.venv\Lib\site-packages\keras\src\utils\module_utils.py", line 29, in initialize
+    raise ImportError(self.import_error_msg)
+ImportError: This requires the scipy module. You can install it via `pip install scipy`
+[2026-06-13 02:28:04,460: INFO: main: >>>>>> stage Data Ingestion stage started <<<<<<]
+[2026-06-13 02:28:04,461: INFO: common: yaml file: C:\Users\LENOVO\Kidney-Disease-Classification-DL-Project-DVC\config\config.yaml loaded successfully]
+[2026-06-13 02:28:04,462: INFO: common: yaml file: C:\Users\LENOVO\Kidney-Disease-Classification-DL-Project-DVC\params.yaml loaded successfully]
+[2026-06-13 02:28:04,462: INFO: common: created directory at: artifacts]
+[2026-06-13 02:28:04,463: INFO: common: created directory at: artifacts/data_ingestion]
+[2026-06-13 02:28:04,463: INFO: data_ingestion: Copying data from C:\Users\LENOVO\Kidney-Disease-Classification-DL-Project-DVC\kidney.zip to artifacts\data_ingestion\data.zip]
+[2026-06-13 02:28:04,464: INFO: data_ingestion: File already exists at: artifacts\data_ingestion\data.zip]
+[2026-06-13 02:28:04,464: INFO: data_ingestion: Extracting artifacts\data_ingestion\data.zip to artifacts\data_ingestion]
+[2026-06-13 02:28:05,682: INFO: data_ingestion: Extraction completed successfully!]
+[2026-06-13 02:28:05,683: INFO: main: >>>>>> stage Data Ingestion stage completed <<<<<<
+
+x==========x]
+[2026-06-13 02:28:05,683: INFO: main: *******************]
+[2026-06-13 02:28:05,683: INFO: main: >>>>>> stage Prepare base model started <<<<<<]
+[2026-06-13 02:28:05,685: INFO: common: yaml file: C:\Users\LENOVO\Kidney-Disease-Classification-DL-Project-DVC\config\config.yaml loaded successfully]
+[2026-06-13 02:28:05,686: INFO: common: yaml file: C:\Users\LENOVO\Kidney-Disease-Classification-DL-Project-DVC\params.yaml loaded successfully]
+[2026-06-13 02:28:05,687: INFO: common: created directory at: artifacts]
+[2026-06-13 02:28:05,688: INFO: common: created directory at: artifacts/prepare_base_model]
+[2026-06-13 02:28:06,019: WARNING: saving_api: You are saving your model as an HDF5 file via `model.save()` or `keras.saving.save_model(model)`. This file format is considered legacy. We recommend using instead the native Keras format, e.g. `model.save('my_model.keras')` or `keras.saving.save_model(model, 'my_model.keras')`. ]
+[2026-06-13 02:28:06,170: WARNING: saving_api: You are saving your model as an HDF5 file via `model.save()` or `keras.saving.save_model(model)`. This file format is considered legacy. We recommend using instead the native Keras format, e.g. `model.save('my_model.keras')` or `keras.saving.save_model(model, 'my_model.keras')`. ]
+[2026-06-13 02:28:06,349: INFO: main: >>>>>> stage Prepare base model completed <<<<<<
+
+x==========x]
+[2026-06-13 02:28:06,349: INFO: main: *******************]
+[2026-06-13 02:28:06,349: INFO: main: >>>>>> stage Training started <<<<<<]
+[2026-06-13 02:28:06,351: INFO: common: yaml file: C:\Users\LENOVO\Kidney-Disease-Classification-DL-Project-DVC\config\config.yaml loaded successfully]
+[2026-06-13 02:28:06,353: INFO: common: yaml file: C:\Users\LENOVO\Kidney-Disease-Classification-DL-Project-DVC\params.yaml loaded successfully]
+[2026-06-13 02:28:06,353: INFO: common: created directory at: artifacts]
+[2026-06-13 02:28:06,355: INFO: common: created directory at: artifacts\training]
+[2026-06-13 02:28:06,514: WARNING: saving_utils: Compiled the loaded model, but the compiled metrics have yet to be built. `model.compile_metrics` will be empty until you train or evaluate the model.]
+[2026-06-13 02:28:07,472: ERROR: main: Unknown variable: <Variable path=dense/kernel, shape=(25088, 2), dtype=float32>. This optimizer can only be called for the variables it was originally built with. When working with a new set of variables, you should recreate a new optimizer instance.]
+Traceback (most recent call last):
+  File "C:\Users\LENOVO\Kidney-Disease-Classification-DL-Project-DVC\main.py", line 42, in <module>
+    model_trainer.main()
+  File "C:\Users\LENOVO\Kidney-Disease-Classification-DL-Project-DVC\src\cnnClassifier\pipeline\stage_03_model_training.py", line 21, in main
+    training.train()
+  File "C:\Users\LENOVO\Kidney-Disease-Classification-DL-Project-DVC\src\cnnClassifier\components\model_training.py", line 76, in train
+    self.model.fit(
+  File "C:\Users\LENOVO\Kidney-Disease-Classification-DL-Project-DVC\.venv\Lib\site-packages\keras\src\utils\traceback_utils.py", line 122, in error_handler
+    raise e.with_traceback(filtered_tb) from None
+  File "C:\Users\LENOVO\Kidney-Disease-Classification-DL-Project-DVC\.venv\Lib\site-packages\keras\src\optimizers\base_optimizer.py", line 408, in _check_variables_are_known
+    raise ValueError(
+ValueError: Unknown variable: <Variable path=dense/kernel, shape=(25088, 2), dtype=float32>. This optimizer can only be called for the variables it was originally built with. When working with a new set of variables, you should recreate a new optimizer instance.
+[2026-06-13 02:31:28,553: INFO: main: >>>>>> stage Data Ingestion stage started <<<<<<]
+[2026-06-13 02:31:28,555: INFO: common: yaml file: C:\Users\LENOVO\Kidney-Disease-Classification-DL-Project-DVC\config\config.yaml loaded successfully]
+[2026-06-13 02:31:28,557: INFO: common: yaml file: C:\Users\LENOVO\Kidney-Disease-Classification-DL-Project-DVC\params.yaml loaded successfully]
+[2026-06-13 02:31:28,557: INFO: common: created directory at: artifacts]
+[2026-06-13 02:31:28,557: INFO: common: created directory at: artifacts/data_ingestion]
+[2026-06-13 02:31:28,557: INFO: data_ingestion: Copying data from C:\Users\LENOVO\Kidney-Disease-Classification-DL-Project-DVC\kidney.zip to artifacts\data_ingestion\data.zip]
+[2026-06-13 02:31:28,558: INFO: data_ingestion: File already exists at: artifacts\data_ingestion\data.zip]
+[2026-06-13 02:31:28,558: INFO: data_ingestion: Extracting artifacts\data_ingestion\data.zip to artifacts\data_ingestion]
+[2026-06-13 02:31:29,698: INFO: data_ingestion: Extraction completed successfully!]
+[2026-06-13 02:31:29,698: INFO: main: >>>>>> stage Data Ingestion stage completed <<<<<<
+
+x==========x]
+[2026-06-13 02:31:29,699: INFO: main: *******************]
+[2026-06-13 02:31:29,699: INFO: main: >>>>>> stage Prepare base model started <<<<<<]
+[2026-06-13 02:31:29,701: INFO: common: yaml file: C:\Users\LENOVO\Kidney-Disease-Classification-DL-Project-DVC\config\config.yaml loaded successfully]
+[2026-06-13 02:31:29,702: INFO: common: yaml file: C:\Users\LENOVO\Kidney-Disease-Classification-DL-Project-DVC\params.yaml loaded successfully]
+[2026-06-13 02:31:29,703: INFO: common: created directory at: artifacts]
+[2026-06-13 02:31:29,703: INFO: common: created directory at: artifacts/prepare_base_model]
+[2026-06-13 02:31:30,402: WARNING: saving_api: You are saving your model as an HDF5 file via `model.save()` or `keras.saving.save_model(model)`. This file format is considered legacy. We recommend using instead the native Keras format, e.g. `model.save('my_model.keras')` or `keras.saving.save_model(model, 'my_model.keras')`. ]
+[2026-06-13 02:31:30,571: WARNING: saving_api: You are saving your model as an HDF5 file via `model.save()` or `keras.saving.save_model(model)`. This file format is considered legacy. We recommend using instead the native Keras format, e.g. `model.save('my_model.keras')` or `keras.saving.save_model(model, 'my_model.keras')`. ]
+[2026-06-13 02:31:30,673: INFO: main: >>>>>> stage Prepare base model completed <<<<<<
+
+x==========x]
+[2026-06-13 02:31:30,673: INFO: main: *******************]
+[2026-06-13 02:31:30,673: INFO: main: >>>>>> stage Training started <<<<<<]
+[2026-06-13 02:31:30,674: INFO: common: yaml file: C:\Users\LENOVO\Kidney-Disease-Classification-DL-Project-DVC\config\config.yaml loaded successfully]
+[2026-06-13 02:31:30,675: INFO: common: yaml file: C:\Users\LENOVO\Kidney-Disease-Classification-DL-Project-DVC\params.yaml loaded successfully]
+[2026-06-13 02:31:30,675: INFO: common: created directory at: artifacts]
+[2026-06-13 02:31:30,676: INFO: common: created directory at: artifacts\training]
+[2026-06-13 02:31:30,812: WARNING: saving_utils: Compiled the loaded model, but the compiled metrics have yet to be built. `model.compile_metrics` will be empty until you train or evaluate the model.]
+[2026-06-13 02:31:30,815: ERROR: main: 'TrainingConfig' object has no attribute 'params_learning_rate']
+Traceback (most recent call last):
+  File "C:\Users\LENOVO\Kidney-Disease-Classification-DL-Project-DVC\main.py", line 42, in <module>
+    model_trainer.main()
+  File "C:\Users\LENOVO\Kidney-Disease-Classification-DL-Project-DVC\src\cnnClassifier\pipeline\stage_03_model_training.py", line 19, in main
+    training.get_base_model()
+  File "C:\Users\LENOVO\Kidney-Disease-Classification-DL-Project-DVC\src\cnnClassifier\components\model_training.py", line 21, in get_base_model
+    optimizer=tf.keras.optimizers.Adam(learning_rate=self.config.params_learning_rate),
+                                                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'TrainingConfig' object has no attribute 'params_learning_rate'
+[2026-06-13 02:33:56,508: INFO: main: >>>>>> stage Data Ingestion stage started <<<<<<]
+[2026-06-13 02:33:56,509: INFO: common: yaml file: C:\Users\LENOVO\Kidney-Disease-Classification-DL-Project-DVC\config\config.yaml loaded successfully]
+[2026-06-13 02:33:56,510: INFO: common: yaml file: C:\Users\LENOVO\Kidney-Disease-Classification-DL-Project-DVC\params.yaml loaded successfully]
+[2026-06-13 02:33:56,511: INFO: common: created directory at: artifacts]
+[2026-06-13 02:33:56,511: INFO: common: created directory at: artifacts/data_ingestion]
+[2026-06-13 02:33:56,512: INFO: data_ingestion: Copying data from C:\Users\LENOVO\Kidney-Disease-Classification-DL-Project-DVC\kidney.zip to artifacts\data_ingestion\data.zip]
+[2026-06-13 02:33:56,512: INFO: data_ingestion: File already exists at: artifacts\data_ingestion\data.zip]
+[2026-06-13 02:33:56,512: INFO: data_ingestion: Extracting artifacts\data_ingestion\data.zip to artifacts\data_ingestion]
+[2026-06-13 02:33:57,438: INFO: data_ingestion: Extraction completed successfully!]
+[2026-06-13 02:33:57,438: INFO: main: >>>>>> stage Data Ingestion stage completed <<<<<<
+
+x==========x]
+[2026-06-13 02:33:57,438: INFO: main: *******************]
+[2026-06-13 02:33:57,438: INFO: main: >>>>>> stage Prepare base model started <<<<<<]
+[2026-06-13 02:33:57,439: INFO: common: yaml file: C:\Users\LENOVO\Kidney-Disease-Classification-DL-Project-DVC\config\config.yaml loaded successfully]
+[2026-06-13 02:33:57,440: INFO: common: yaml file: C:\Users\LENOVO\Kidney-Disease-Classification-DL-Project-DVC\params.yaml loaded successfully]
+[2026-06-13 02:33:57,441: INFO: common: created directory at: artifacts]
+[2026-06-13 02:33:57,441: INFO: common: created directory at: artifacts/prepare_base_model]
+[2026-06-13 02:33:57,747: WARNING: saving_api: You are saving your model as an HDF5 file via `model.save()` or `keras.saving.save_model(model)`. This file format is considered legacy. We recommend using instead the native Keras format, e.g. `model.save('my_model.keras')` or `keras.saving.save_model(model, 'my_model.keras')`. ]
+[2026-06-13 02:33:57,887: WARNING: saving_api: You are saving your model as an HDF5 file via `model.save()` or `keras.saving.save_model(model)`. This file format is considered legacy. We recommend using instead the native Keras format, e.g. `model.save('my_model.keras')` or `keras.saving.save_model(model, 'my_model.keras')`. ]
+[2026-06-13 02:33:57,989: INFO: main: >>>>>> stage Prepare base model completed <<<<<<
+
+x==========x]
+[2026-06-13 02:33:57,989: INFO: main: *******************]
+[2026-06-13 02:33:57,989: INFO: main: >>>>>> stage Training started <<<<<<]
+[2026-06-13 02:33:57,990: INFO: common: yaml file: C:\Users\LENOVO\Kidney-Disease-Classification-DL-Project-DVC\config\config.yaml loaded successfully]
+[2026-06-13 02:33:57,991: INFO: common: yaml file: C:\Users\LENOVO\Kidney-Disease-Classification-DL-Project-DVC\params.yaml loaded successfully]
+[2026-06-13 02:33:57,991: INFO: common: created directory at: artifacts]
+[2026-06-13 02:33:57,991: INFO: common: created directory at: artifacts\training]
+[2026-06-13 02:33:58,130: WARNING: saving_utils: Compiled the loaded model, but the compiled metrics have yet to be built. `model.compile_metrics` will be empty until you train or evaluate the model.]
+[2026-06-13 02:38:07,187: WARNING: saving_api: You are saving your model as an HDF5 file via `model.save()` or `keras.saving.save_model(model)`. This file format is considered legacy. We recommend using instead the native Keras format, e.g. `model.save('my_model.keras')` or `keras.saving.save_model(model, 'my_model.keras')`. ]
+[2026-06-13 02:38:07,285: INFO: main: >>>>>> stage Training completed <<<<<<
+
+x==========x]
