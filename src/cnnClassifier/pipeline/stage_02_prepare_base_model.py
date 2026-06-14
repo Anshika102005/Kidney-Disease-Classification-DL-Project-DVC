@@ -1,3 +1,8 @@
+import os
+import sys
+
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "..")))
+
 from cnnClassifier.config.configuration import ConfigurationManager
 from cnnClassifier.components.prepare_base_model import PrepareBaseModel
 from cnnClassifier import logger

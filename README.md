@@ -38,3 +38,31 @@ conda activate cnncls
 '''bash 
 pip install -r requirements.txt 
 '''
+
+### cmd
+ -mlflow ui
+
+
+### dagshub
+[dagshub](https://dagshub.com/)
+
+import dagshub
+dagshub.init(repo_owner='Anshika102005', repo_name='Kidney-Disease-Classification-DL-Project-DVC', mlflow=True)
+
+import mlflow
+with mlflow.start_run():
+  mlflow.log_param('parameter name', 'value')
+  mlflow.log_metric('metric name', 1)
+
+
+
+Run this to export as env variables:
+
+'''bash
+
+export MLFLOW_TRACKING_URI = "https://dagshub.com/Anshika102005/Kidney-Disease-Classification-DL-Project-DVC.mlflow"
+
+export MLFLOW_TRACKING_USERNAME = Anshika102005
+
+export MLFLOW_TRACKING_PASSWORD = Anshika@102005
+
