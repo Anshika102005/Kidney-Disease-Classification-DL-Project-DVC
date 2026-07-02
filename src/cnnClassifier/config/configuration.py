@@ -13,19 +13,30 @@ class ConfigurationManager:
         self.config = read_yaml(config_filepath)
         self.params = read_yaml(params_filepath)
 
-        artifacts_root = self.config.get("artifacts_root", self.config["data_ingestion"]["root_dir"])
+        artifacts_root = self._resolve_path(
+            self.config.get("artifacts_root", self.config["data_ingestion"]["root_dir"])
+        )
         create_directories([artifacts_root])
+
+    def _resolve_path(self, path_value) -> Path:
+        path = Path(path_value)
+        if path.is_absolute():
+            return path
+        return ROOT_DIR / path
 
     def get_data_ingestion_config(self) -> DataIngestionConfig:
         config = self.config["data_ingestion"]
+        root_dir = self._resolve_path(config["root_dir"])
+        local_data_file = self._resolve_path(config["local_data_file"])
+        unzip_dir = self._resolve_path(config["unzip_dir"])
 
-        create_directories([config["root_dir"]])
+        create_directories([root_dir])
 
         data_ingestion_config = DataIngestionConfig(
-            root_dir=Path(config["root_dir"]),
+            root_dir=root_dir,
             source_URL=config["source_URL"],
-            local_data_file=Path(config["local_data_file"]),
-            unzip_dir=Path(config["unzip_dir"]) 
+            local_data_file=local_data_file,
+            unzip_dir=unzip_dir
         )
 
         return data_ingestion_config
@@ -33,13 +44,14 @@ class ConfigurationManager:
     def get_prepare_base_model_config(self) -> PrepareBaseModelConfig:
         config = self.config.prepare_base_model
         params = self.params.get("TrainingArguments", self.params.get("training_arguments", self.params))
+        root_dir = self._resolve_path(config.root_dir)
         
-        create_directories([config.root_dir])
+        create_directories([root_dir])
 
         prepare_base_model_config = PrepareBaseModelConfig(
-            root_dir=Path(config.root_dir),
-            base_model_path=Path(config.base_model_path),
-            updated_base_model_path=Path(config.updated_base_model_path),
+            root_dir=root_dir,
+            base_model_path=self._resolve_path(config.base_model_path),
+            updated_base_model_path=self._resolve_path(config.updated_base_model_path),
             params_image_size=params.get("image_size", params.get("IMAGE_SIZE")),
             params_learning_rate=params.get("learning_rate", params.get("LEARNING_RATE")),
             params_include_top=params.get("include_top", params.get("INCLUDE_TOP")),
@@ -58,15 +70,16 @@ class ConfigurationManager:
         training = self.config.training
         prepare_base_model = self.config.prepare_base_model
         params = self.params
-        training_data = Path(training.training_data)
+        training_data = self._resolve_path(training.training_data)
+        root_dir = self._resolve_path(training.root_dir)
         create_directories([
-            Path(training.root_dir)
+            root_dir
         ])
 
         training_config = TrainingConfig(
-            root_dir=Path(training.root_dir),
-            trained_model_path=Path(training.trained_model_path),
-            updated_base_model_path=Path(prepare_base_model.updated_base_model_path),
+            root_dir=root_dir,
+            trained_model_path=self._resolve_path(training.trained_model_path),
+            updated_base_model_path=self._resolve_path(prepare_base_model.updated_base_model_path),
             training_data=training_data,
             params_epochs=params.EPOCHS,
             params_batch_size=params.BATCH_SIZE,
@@ -83,8 +96,8 @@ class ConfigurationManager:
 
     def get_evaluation_config(self) -> EvaluationConfig:
         eval_config = EvaluationConfig(
-            path_of_model=Path(self.config.training.trained_model_path),
-            training_data=Path(self.config.training.training_data),
+            path_of_model=self._resolve_path(self.config.training.trained_model_path),
+            test_data=self._resolve_path(self.config.evaluation.test_data),
             all_params=dict(self.params),
             mlflow_uri=self.config.evaluation.mlflow_uri,
             params_image_size=self.params.IMAGE_SIZE,

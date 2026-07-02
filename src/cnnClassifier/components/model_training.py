@@ -1,6 +1,8 @@
 import os
 import tensorflow as tf
 from pathlib import Path
+# pyrefly: ignore [missing-import]
+from tensorflow.keras.applications.vgg16 import preprocess_input
 from cnnClassifier.entity.config_entity import TrainingConfig
 
 class Training:
@@ -55,7 +57,7 @@ class Training:
     
     def train_valid_generator(self):
         datagenerator_kwargs = dict(
-            rescale=1./255,
+            preprocessing_function=preprocess_input,
             validation_split=0.20
         )
         dataflow_kwargs = dict(
@@ -137,9 +139,7 @@ class Training:
         class_indices = self.train_generator.class_indices
         class_weights = {}
         
-        # Count actual files per class in training directory
         train_dir = str(self.config.training_data)
-        total_samples = 0
         class_counts = {}
         
         for class_name, idx in class_indices.items():
@@ -147,15 +147,20 @@ class Training:
             if os.path.exists(class_path):
                 count = len([f for f in os.listdir(class_path) 
                            if f.lower().endswith(('.png', '.jpg', '.jpeg', '.bmp', '.tiff'))])
-                class_counts[idx] = count
-                total_samples += count
-            else:
-                class_counts[idx] = 1
-                total_samples += 1
+                if count > 0:
+                    class_counts[idx] = count
         
-        n_classes = len(class_indices)
+        if not class_counts:
+            return {idx: 1.0 for idx in class_indices.values()}
+        
+        n_nonempty = len(class_counts)
+        total_samples = sum(class_counts.values())
         for idx, count in class_counts.items():
-            class_weights[idx] = total_samples / (n_classes * count) if count > 0 else 1.0
+            class_weights[idx] = total_samples / (n_nonempty * count)
+        
+        for idx in class_indices.values():
+            if idx not in class_weights:
+                class_weights[idx] = 1.0
         
         return class_weights
     

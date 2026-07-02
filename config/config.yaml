@@ -2,8 +2,8 @@ artifacts_root: artifacts
 
 data_ingestion:
   root_dir: artifacts/data_ingestion
-  source_URL: "C:\\Users\\LENOVO\\Kidney-Disease-Classification-DL-Project-DVC\\kidney.zip"
-  local_data_file: artifacts/data_ingestion/data.zip
+  source_URL: local
+  local_data_file: "artifacts/Data Ingestion/CT-KIDNEY-DATASET-Normal-Cyst-Tumor-Stone/CT-KIDNEY-DATASET-Normal-Cyst-Tumor-Stone"
   unzip_dir: artifacts/data_ingestion
   
 
@@ -20,14 +20,14 @@ prepare_base_model:
 training:
   root_dir: artifacts/training
   trained_model_path: artifacts/training/trained_model.keras
-  training_data: artifacts/data_ingestion/CT-KIDNEY-DATASET-Normal-Cyst-Tumor-Stone/CT-KIDNEY-DATASET-Normal-Cyst-Tumor-Stone
+  training_data: artifacts/data_ingestion/train
 
 
 
 evaluation:
   mlflow_uri: "https://dagshub.com/Anshika102005/Kidney-Disease-Classification-DL-Project-DVC.mlflow"
   path_of_model: "artifacts/training/trained_model.keras"
-
+  test_data: artifacts/data_ingestion/test
 
 
 

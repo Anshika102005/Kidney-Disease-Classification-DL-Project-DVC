@@ -64,5 +64,4 @@ export MLFLOW_TRACKING_URI = "https://dagshub.com/Anshika102005/Kidney-Disease-C
 
 export MLFLOW_TRACKING_USERNAME = Anshika102005
 
-export MLFLOW_TRACKING_PASSWORD = Anshika@102005
-
+export MLFLOW_TRACKING_PASSWORD = "<your-dagshub-token-or-password>"

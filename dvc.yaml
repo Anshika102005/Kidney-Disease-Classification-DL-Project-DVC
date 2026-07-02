@@ -19,10 +19,10 @@ stages:
       - artifacts/prepare_base_model
 
   training:
-    cmd: python src/cnnClassifier/pipeline/stage_03_training.py
+    cmd: python src/cnnClassifier/pipeline/stage_03_model_training.py
     deps:
-      - src/cnnClassifier/pipeline/stage_03_training.py
-      - src/cnnClassifier/components/model_trainer.py
+      - src/cnnClassifier/pipeline/stage_03_model_training.py
+      - src/cnnClassifier/components/model_training.py
       - config/config.yaml
       - params.yaml
       - artifacts/data_ingestion
