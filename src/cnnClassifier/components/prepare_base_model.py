@@ -16,19 +16,22 @@ class PrepareBaseModel:
         self.save_model(path=self.config.base_model_path, model=self.model)
     
     @staticmethod
-    def _prepare_full_model(model, classes, freeze_all, freeze_till, learning_rate):
+    def _prepare_full_model(model, classes, freeze_all, freeze_till, learning_rate, dropout_rate):
         if freeze_all:
             for layer in model.layers:
-                model.trainable = False
+                layer.trainable = False
         elif (freeze_till is not None) and (freeze_till > 0):
             for layer in model.layers[:-freeze_till]:
-                model.trainable = False
+                layer.trainable = False
         
-        flatten_in = tf.keras.layers.Flatten()(model.output)
+        pool = tf.keras.layers.GlobalAveragePooling2D()(model.output)
+        bn = tf.keras.layers.BatchNormalization()(pool)
+        dropout = tf.keras.layers.Dropout(dropout_rate)(bn)
         prediction = tf.keras.layers.Dense(
             units=classes,
-            activation="softmax"
-        )(flatten_in)
+            activation="softmax",
+            kernel_regularizer=tf.keras.regularizers.l2(0.001)
+        )(dropout)
         
         full_model = tf.keras.models.Model(
             inputs=model.input,
@@ -36,7 +39,7 @@ class PrepareBaseModel:
         )
         
         full_model.compile(
-            optimizer=tf.keras.optimizers.SGD(learning_rate=learning_rate),
+            optimizer=tf.keras.optimizers.Adam(learning_rate=learning_rate),
             loss=tf.keras.losses.CategoricalCrossentropy(),
             metrics=["accuracy"]
         )
@@ -45,18 +48,19 @@ class PrepareBaseModel:
         return full_model
     
     def update_base_model(self):
+        params = self.config
         self.full_model = self._prepare_full_model(
             model=self.model,
-            classes=self.config.params_classes,
-            freeze_all=True,
-            freeze_till=None,
-            learning_rate=self.config.params_learning_rate
+            classes=params.params_classes,
+            freeze_all=params.params_freeze_all if hasattr(params, 'params_freeze_all') else False,
+            freeze_till=params.params_freeze_till if hasattr(params, 'params_freeze_till') else None,
+            learning_rate=params.params_learning_rate,
+            dropout_rate=params.params_dropout if hasattr(params, 'params_dropout') else 0.5
         )
         self.save_model(path=self.config.updated_base_model_path, model=self.full_model)
     
     @staticmethod
     def save_model(path: Path, model: tf.keras.Model):
-        # ✅ FIX: Save as .keras format (version compatible)
         path = str(path)
         if path.endswith('.h5'):
             path = path.replace('.h5', '.keras')

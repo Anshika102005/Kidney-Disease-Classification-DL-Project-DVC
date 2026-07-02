@@ -34,3 +34,10 @@ def get_size(path: Path) -> str:
     """get size in KB"""
     size_in_kb = round(os.path.getsize(path)/1024)
     return f"~ {size_in_kb} KB"
+
+
+def save_json(path: Path, data: dict):
+    """save json data"""
+    with open(path, "w") as f:
+        json.dump(data, f, indent=4)
+    logger.info(f"json file saved at: {path}")

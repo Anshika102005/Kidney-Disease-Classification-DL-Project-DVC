@@ -19,8 +19,9 @@ class PrepareBaseModelConfig:
     params_include_top: bool
     params_weights: str
     params_classes: int
-
-
+    params_freeze_all: bool
+    params_freeze_till: int
+    params_dropout: float
 
 
 @dataclass(frozen=True)
@@ -33,6 +34,11 @@ class TrainingConfig:
     params_batch_size: int
     params_is_augmentation: bool
     params_image_size: list
+    params_learning_rate: float
+    params_classes: int
+    params_early_stopping_patience: int
+    params_reduce_lr_patience: int
+    params_reduce_lr_factor: float
 
 
 
@@ -44,6 +50,7 @@ class EvaluationConfig:
     mlflow_uri: str
     params_image_size: list
     params_batch_size: int
+    params_classes: int
 
 
 

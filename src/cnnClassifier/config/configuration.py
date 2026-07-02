@@ -1,5 +1,5 @@
 from cnnClassifier.constants import *
-from cnnClassifier.utils.common import read_yaml, create_directories
+from cnnClassifier.utils.common import read_yaml, create_directories, save_json
 from cnnClassifier.entity import DataIngestionConfig, PrepareBaseModelConfig, TrainingConfig, EvaluationConfig
 from pathlib import Path
 import os
@@ -44,7 +44,10 @@ class ConfigurationManager:
             params_learning_rate=params.get("learning_rate", params.get("LEARNING_RATE")),
             params_include_top=params.get("include_top", params.get("INCLUDE_TOP")),
             params_weights=params.get("weights", params.get("WEIGHTS")),
-            params_classes=params.get("classes", params.get("CLASSES"))
+            params_classes=params.get("classes", params.get("CLASSES")),
+            params_freeze_all=params.get("freeze_all", params.get("FREEZE_ALL", False)),
+            params_freeze_till=params.get("freeze_till", params.get("FREEZE_TILL", 0)),
+            params_dropout=params.get("dropout", params.get("DROPOUT", 0.5))
         )
 
         return prepare_base_model_config
@@ -68,7 +71,12 @@ class ConfigurationManager:
             params_epochs=params.EPOCHS,
             params_batch_size=params.BATCH_SIZE,
             params_is_augmentation=params.AUGMENTATION,
-            params_image_size=params.IMAGE_SIZE
+            params_image_size=params.IMAGE_SIZE,
+            params_learning_rate=params.LEARNING_RATE,
+            params_classes=params.CLASSES,
+            params_early_stopping_patience=params.EARLY_STOPPING_PATIENCE,
+            params_reduce_lr_patience=params.REDUCE_LR_PATIENCE,
+            params_reduce_lr_factor=params.REDUCE_LR_FACTOR
         )
 
         return training_config
@@ -80,6 +88,7 @@ class ConfigurationManager:
             all_params=dict(self.params),
             mlflow_uri=self.config.evaluation.mlflow_uri,
             params_image_size=self.params.IMAGE_SIZE,
-            params_batch_size=self.params.BATCH_SIZE
+            params_batch_size=self.params.BATCH_SIZE,
+            params_classes=self.params.CLASSES
         )
         return eval_config

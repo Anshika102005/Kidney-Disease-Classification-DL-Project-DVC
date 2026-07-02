@@ -2,12 +2,12 @@ import os
 import json
 import tensorflow as tf
 import mlflow
+import mlflow.keras
 from datetime import datetime
 from pathlib import Path
 from cnnClassifier import logger
 from cnnClassifier.entity.config_entity import EvaluationConfig
-
-
+from cnnClassifier.utils.common import read_yaml, create_directories
 class Evaluation:
     def __init__(self, config: EvaluationConfig):
         self.config = config
@@ -39,8 +39,9 @@ class Evaluation:
             weights=None,
             include_top=False
         )
-        x = tf.keras.layers.Flatten()(base.output)
-        out = tf.keras.layers.Dense(2, activation="softmax")(x)
+        x = tf.keras.layers.GlobalAveragePooling2D()(base.output)
+        x = tf.keras.layers.Dropout(0.5)(x)
+        out = tf.keras.layers.Dense(self.config.params_classes, activation="softmax")(x)
         model = tf.keras.Model(inputs=base.input, outputs=out)
         return model
 
@@ -70,7 +71,9 @@ class Evaluation:
         path = self.config.path_of_model
         logger.info(f"Loading model from: {path}")
 
-        self.model = self.load_model(path)
+        # Load the complete saved model directly
+        self.model = tf.keras.models.load_model(path)
+        
         self.model.compile(
             optimizer="adam",
             loss="categorical_crossentropy",
