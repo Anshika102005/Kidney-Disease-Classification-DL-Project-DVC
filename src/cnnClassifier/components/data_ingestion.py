@@ -90,41 +90,57 @@ class DataIngestion:
             valid_src = dataset_path / "valid"
             test_src = dataset_path / "test"
 
-            # Pre-split dataset: copy splits as-is (merge valid into train)
-            if train_src.exists():
-                self._copy_class_split(train_src, train_dest, class_names)
-                if valid_src.exists():
-                    self._copy_class_split(valid_src, train_dest, class_names)
-                    logger.info("Merged valid split into train")
-                if test_src.exists():
-                    self._copy_class_split(test_src, test_dest, class_names)
+            def _has_expected_structure(split_root: Path, classes: list) -> bool:
+                # If each class folder exists and has at least 1 file, assume organized already.
+                for cn in classes:
+                    cdir = split_root / cn
+                    if not cdir.exists() or not cdir.is_dir():
+                        return False
+                    if not any(p.is_file() for p in cdir.iterdir()):
+                        return False
+                return True
+
+            # Avoid re-copying if organized dataset already exists
+            already_organized = _has_expected_structure(train_dest, class_names) and _has_expected_structure(test_dest, class_names)
+
+            if already_organized:
+                logger.info(f"Organized dataset already exists at: {unzip_path}. Skipping copy.")
             else:
-                # Flat dataset: split into train (70%) / valid (15%) / test (15%)
-                logger.info("No pre-existing splits found, creating 70/15/15 split...")
-                for class_name in class_names:
-                    class_dir = dataset_path / class_name
-                    if not class_dir.exists():
-                        continue
-                    images = [f for f in class_dir.iterdir() if f.is_file()]
-                    if not images:
-                        continue
-                    random.shuffle(images)
-                    n_test = max(1, int(len(images) * 0.15))
-                    n_valid = max(1, int(len(images) * 0.15))
+                # Pre-split dataset: copy splits as-is (merge valid into train)
+                if train_src.exists():
+                    self._copy_class_split(train_src, train_dest, class_names)
+                    if valid_src.exists():
+                        self._copy_class_split(valid_src, train_dest, class_names)
+                        logger.info("Merged valid split into train")
+                    if test_src.exists():
+                        self._copy_class_split(test_src, test_dest, class_names)
+                else:
+                    # Flat dataset: split into train (70%) / valid (15%) / test (15%)
+                    logger.info("No pre-existing splits found, creating 70/15/15 split...")
+                    for class_name in class_names:
+                        class_dir = dataset_path / class_name
+                        if not class_dir.exists():
+                            continue
+                        images = [f for f in class_dir.iterdir() if f.is_file()]
+                        if not images:
+                            continue
+                        random.shuffle(images)
+                        n_test = max(1, int(len(images) * 0.15))
+                        n_valid = max(1, int(len(images) * 0.15))
 
-                    test_imgs = images[:n_test]
-                    valid_imgs = images[n_test:n_test + n_valid]
-                    train_imgs = images[n_test + n_valid:]
+                        test_imgs = images[:n_test]
+                        valid_imgs = images[n_test:n_test + n_valid]
+                        train_imgs = images[n_test + n_valid:]
 
-                    for img in train_imgs + valid_imgs:
-                        (train_dest / class_name).mkdir(parents=True, exist_ok=True)
-                        shutil.copy2(str(img), str(train_dest / class_name / img.name))
+                        for img in train_imgs + valid_imgs:
+                            (train_dest / class_name).mkdir(parents=True, exist_ok=True)
+                            shutil.copy2(str(img), str(train_dest / class_name / img.name))
 
-                    for img in test_imgs:
-                        (test_dest / class_name).mkdir(parents=True, exist_ok=True)
-                        shutil.copy2(str(img), str(test_dest / class_name / img.name))
+                        for img in test_imgs:
+                            (test_dest / class_name).mkdir(parents=True, exist_ok=True)
+                            shutil.copy2(str(img), str(test_dest / class_name / img.name))
 
-                logger.info("Dataset split into train/valid/test and valid merged into train")
+                    logger.info("Dataset split into train/valid/test and valid merged into train")
 
             for split_name, split_dir in [("train", train_dest), ("test", test_dest)]:
                 counts = {}

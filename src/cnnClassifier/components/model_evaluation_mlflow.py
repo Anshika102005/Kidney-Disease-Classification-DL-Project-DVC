@@ -7,7 +7,8 @@ from datetime import datetime
 import tensorflow as tf
 import mlflow
 from tensorflow.keras.applications.vgg16 import preprocess_input
-from cnnClassifier import logger
+from cnnClassifier import config, logger
+from cnnClassifier.config.configuration import ConfigurationManager
 from cnnClassifier.entity.config_entity import EvaluationConfig
 
 
@@ -15,14 +16,31 @@ class Evaluation:
     def __init__(self, config: EvaluationConfig):
         self.config = config
 
+    def _get_target_size(self):
+        if hasattr(self, "model") and getattr(self.model, "input_shape", None):
+            input_shape = self.model.input_shape
+            if isinstance(input_shape, (list, tuple)) and len(input_shape) >= 3:
+                height, width = input_shape[1], input_shape[2]
+                if isinstance(height, int) and isinstance(width, int):
+                    return (height, width)
+
+        image_size = self.config.params_image_size or []
+        if len(image_size) >= 3:
+            return tuple(int(dim) for dim in image_size[:2])
+        return (224, 224)
+
+    def _get_batch_size(self):
+        batch_size = int(getattr(self.config, "params_batch_size", 16) or 16)
+        return max(1, min(batch_size, 16))
+
     def _valid_generator(self):
         dataflow_kwargs = dict(
-            target_size=self.config.params_image_size[:-1],
-            batch_size=self.config.params_batch_size,
+            target_size=self._get_target_size(),
+            batch_size=self._get_batch_size(),
             interpolation="bilinear"
         )
         valid_datagenerator = tf.keras.preprocessing.image.ImageDataGenerator(
-            preprocessing_function=preprocess_input
+            rescale=1./255
         )
         self.valid_generator = valid_datagenerator.flow_from_directory(
             directory=self.config.test_data,
@@ -219,42 +237,7 @@ class Evaluation:
 
         if not os.path.exists(path):
             raise FileNotFoundError(f"Model file not found: {path}")
-
-        if path.endswith(".keras"):
-            try:
-                import keras
-                if keras.__version__.startswith("2."):
-                    with zipfile.ZipFile(path, "r") as zf:
-                        config = json.loads(zf.read("config.json"))
-                        raw_weights = zf.read("model.weights.h5")
-
-                    config = self._preprocess_config(config)
-                    config["compile_config"] = None
-
-                    orig_input = self._patch_input_layer()
-                    orig_policy = self._patch_dtype_policy()
-                    try:
-                        from keras.saving.serialization_lib import deserialize_keras_object
-                        from keras.saving.saving_lib import ObjectSharingScope
-
-                        with ObjectSharingScope():
-                            self.model = deserialize_keras_object(
-                                config,
-                                custom_objects={"Functional": tf.keras.Model},
-                                safe_mode=True,
-                            )
-
-                        self._set_weights_from_h5(self.model, raw_weights)
-                    finally:
-                        self._restore_input_layer(orig_input)
-                        self._restore_dtype_policy(orig_policy)
-
-                    logger.info("Model loaded from .keras (Keras 2 compatible mode)")
-                else:
-                    self.model = tf.keras.models.load_model(path, compile=False)
-            except Exception as e:
-                logger.warning(f"Keras 2 load failed, trying default: {e}")
-                self.model = tf.keras.models.load_model(path, compile=False)
+        
         else:
             self.model = tf.keras.models.load_model(path, compile=False)
 
@@ -271,24 +254,15 @@ class Evaluation:
     def log_into_mlflow(self):
         if not hasattr(self, "score"):
             logger.info("Scores not found, running evaluation first...")
-            self.evaluation()
+        self.evaluation()
         scores = {"loss": float(self.score[0]), "accuracy": float(self.score[1])}
-        scores_path = os.path.join(os.getcwd(), "scores.json")
+        scores_path = os.path.join(
+            os.path.dirname(str(self.config.path_of_model)),
+            "scores.json"
+            )
         with open(scores_path, "w") as f:
             json.dump(scores, f, indent=2)
         logger.info(f"Scores saved to {scores_path}")
-
-        missing_credentials = [
-            name for name in ("MLFLOW_TRACKING_USERNAME", "MLFLOW_TRACKING_PASSWORD")
-            if not os.getenv(name)
-        ]
-        if missing_credentials:
-            logger.warning(
-                "Skipping MLflow logging because credentials are missing: "
-                + ", ".join(missing_credentials)
-            )
-            return
-
         try:
             import mlflow.keras
 
@@ -314,9 +288,23 @@ class Evaluation:
 
                 mlflow.log_artifact(scores_path)
                 logger.info("MLflow logging successful!")
-
         except Exception as e:
             logger.error(f"MLflow logging failed: {e}")
             import traceback
             traceback.print_exc()
             logger.warning("Continuing without MLflow logging.")
+
+
+def main():
+    # Set dummy credentials if not present (for local MLflow)
+    # os.environ.setdefault("MLFLOW_TRACKING_USERNAME", "local")
+    # os.environ.setdefault("MLFLOW_TRACKING_PASSWORD", "local")
+    config = ConfigurationManager()
+    eval_config = config.get_evaluation_config()
+    evaluation = Evaluation(eval_config)
+    evaluation.evaluation()
+    evaluation.log_into_mlflow()
+
+
+if __name__ == "__main__":
+    main()

@@ -20,14 +20,13 @@ prepare_base_model:
 training:
   root_dir: artifacts/training
   trained_model_path: artifacts/training/trained_model.keras
-  training_data: artifacts/data_ingestion/classification_data/train
-
+  training_data: artifacts/data_ingestion/train
 
 
 evaluation:
   mlflow_uri: "https://dagshub.com/Anshika102005/Kidney-Disease-Classification-DL-Project-DVC.mlflow"
   path_of_model: "artifacts/training/trained_model.keras"
-  test_data: artifacts/data_ingestion/classification_data/test
+  test_data: artifacts/data_ingestion/test
 
 
 

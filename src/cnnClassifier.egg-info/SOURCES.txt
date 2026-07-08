@@ -23,3 +23,4 @@ src/cnnClassifier/pipeline/stage_04_evaluation.py
 src/cnnClassifier/utils/__init__.py
 src/cnnClassifier/utils/common.py
 src/cnnClassifier/utils/load_trained_model.py
+tests/test_model_evaluation.py
