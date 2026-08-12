@@ -166,15 +166,7 @@ class Training:
             verbose=1,
         )
 
-        checkpoint_path = str(self.config.trained_model_path).replace(".h5", "_best.keras")
-        checkpoint = tf.keras.callbacks.ModelCheckpoint(
-            checkpoint_path,
-            monitor="val_accuracy",
-            save_best_only=True,
-            verbose=1,
-        )
-
-        return [early_stop, reduce_lr, checkpoint]
+        return [early_stop, reduce_lr]
 
     def train(self):
         callbacks = self._get_callbacks()

@@ -1,9 +1,22 @@
-.env
-.venv/
-.venv-1/
+cat >> .gitignore <<'EOF'
+
+# Python
 __pycache__/
 *.py[cod]
+*.egg-info/
+
+# Virtual environments
+venv/
+.venv/
+
+# Frontend
+Frontend/node_modules/
+
+# Local tools
+.kilo/
+.playwright-mcp/
+
+# Logs
 logs/
-artifacts/
-scores.json
-.dvc/tmp/
+EOF
+echo "artifacts/" >> .gitignoreartifacts/

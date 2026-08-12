@@ -34,18 +34,30 @@ class Evaluation:
         return max(1, min(batch_size, 16))
 
     def _valid_generator(self):
-        dataflow_kwargs = dict(
-            target_size=self._get_target_size(),
-            batch_size=self._get_batch_size(),
-            interpolation="bilinear"
-        )
-        valid_datagenerator = tf.keras.preprocessing.image.ImageDataGenerator(
-            rescale=1./255
-        )
-        self.valid_generator = valid_datagenerator.flow_from_directory(
-            directory=self.config.test_data,
+        image_size_hw = self._get_target_size()
+        batch_size = self._get_batch_size()
+
+        test_ds = tf.keras.utils.image_dataset_from_directory(
+            self.config.test_data,
+            labels="inferred",
+            label_mode="categorical",
+            image_size=image_size_hw,
+            batch_size=batch_size,
             shuffle=False,
-            **dataflow_kwargs
+        )
+
+        def preprocess_test(images, labels):
+            images = tf.cast(images, tf.float32)
+            images = preprocess_input(images)
+            return images, labels
+
+        autotune = tf.data.AUTOTUNE
+        # Cache speeds up repeated evaluation passes by avoiding repeated
+        # decoding/resize work. Use in-memory cache (test set is small).
+        self.valid_generator = (
+            test_ds.map(preprocess_test, num_parallel_calls=autotune)
+            .cache()
+            .prefetch(autotune)
         )
 
     @staticmethod
@@ -253,11 +265,10 @@ class Evaluation:
 
     def log_into_mlflow(self):
         if not hasattr(self, "score"):
-            logger.info("Scores not found, running evaluation first...")
-        self.evaluation()
+            self.evaluation()
         scores = {"loss": float(self.score[0]), "accuracy": float(self.score[1])}
         scores_path = os.path.join(
-            os.path.dirname(str(self.config.path_of_model)),
+            os.getcwd(),
             "scores.json"
             )
         with open(scores_path, "w") as f:
