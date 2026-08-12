@@ -1,22 +1,58 @@
-cat >> .gitignore <<'EOF'
-
-# Python
+# Python bytecode and build outputs
 __pycache__/
 *.py[cod]
+*.pyd
 *.egg-info/
+.eggs/
+build/
+dist/
 
-# Virtual environments
-venv/
+# Python environments
 .venv/
+.venv-*/
+venv/
+env/
+ENV/
 
-# Frontend
+# Frontend dependencies and build output
 Frontend/node_modules/
+Frontend/dist/
 
-# Local tools
+# ML data, artifacts, models, and experiment output
+artifacts/
+datasets/
+data/
+models/
+mlruns/
+*.h5
+*.hdf5
+*.pkl
+*.pth
+*.ckpt
+
+# Logs and temporary files
+logs/
+*.log
+*.tmp
+*.temp
+*.swp
+*.swo
+*~
+
+# Secrets and local configuration
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+
+# Local tooling and IDE settings
 .kilo/
 .playwright-mcp/
+.qodo/
+.vscode/
 
-# Logs
-logs/
-EOF
-echo "artifacts/" >> .gitignoreartifacts/
+# OS files
+.DS_Store
+Thumbs.db
+Desktop.ini
