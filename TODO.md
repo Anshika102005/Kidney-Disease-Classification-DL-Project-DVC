@@ -26,6 +26,6 @@
 - [x] Step 0: Repo analysis completed
 - [x] Step 1: Update data ingestion to avoid unnecessary recopy
 - [x] Step 2: Update training pipeline to tf.data with cache/prefetch
-- [ ] Step 3: (Optional) Update evaluation pipeline to tf.data with cache/prefetch
+- [x] Step 3: (Optional) Update evaluation pipeline to tf.data with cache/prefetch
 
 
